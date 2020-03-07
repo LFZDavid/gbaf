@@ -2,7 +2,7 @@
 
 class VoteManager extends Manager{
 	function add(Vote $vote){
-		$q = $this->db->prepare('INSERT INTO votes(id_user, id_actor, dolike) VALUES(:id_user, :id_actor, :dolike'));
+		$q = $this->db->prepare('INSERT INTO votes(id_user, id_actor, dolike) VALUES(:id_user, :id_actor, :dolike)');
 		
 		$q->bindValue(':id_user' , $vote->id_user());
 		$q->bindValue(':id_actor' , $vote->id_actor());
@@ -38,10 +38,20 @@ class VoteManager extends Manager{
 	}
 
 	function getLikeCount($id_actor){
-		return $this->db->query('SELECT COUNT(*) FROM votes WHERE dolike = true');
+		$q = $this->db->prepare('SELECT * FROM votes WHERE dolike = true AND id_actor = :id_actor');
+		$q->bindValue(':id_actor', $id_actor, PDO::PARAM_INT);
+		$q->execute();
+
+		$result = $q->rowCount();
+		return $result;
 	}
 	
 	function getDislikeCount($id_actor){
-		return $this->db->query('SELECT COUNT(*) FROM votes WHERE dolike = false');
+		$q = $this->db->prepare('SELECT * FROM votes WHERE dolike = false AND id_actor = :id_actor');
+		$q->bindValue(':id_actor', $id_actor, PDO::PARAM_INT);
+		$q->execute();
+
+		$result = $q->rowCount();
+		return $result;
 	}
 }

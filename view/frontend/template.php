@@ -8,7 +8,7 @@
         
     <body>
     	<header>
-    		<img src="public/img/logo-gbaf.png"/>
+    		<a href="index.php"><img src="public/img/logo-gbaf.png"/></a>
             <?= $user_lastname ?>
             <?= $user_firstname ?>
     	</header>

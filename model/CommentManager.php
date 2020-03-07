@@ -3,7 +3,7 @@
 class CommentManager extends Manager{
 
 	function add(Comment $comment){
-		$q = $this->db->prepare('INSERT INTO comments(id_user, id_actor, date_add, content) VALUES(:id_user, :id_actor, :content'));
+		$q = $this->db->prepare('INSERT INTO comments(id_user, id_actor, date_add, content) VALUES(:id_user, :id_actor, :content)');
 		
 		$q->bindValue(':id_user' , $comment->id_user());
 		$q->bindValue(':id_actor' , $comment->id_actor());
@@ -31,14 +31,24 @@ class CommentManager extends Manager{
 		$q->execute($id);
 	}
 
-	function getList(){
-		$q = $this->db->query('SELECT comments.id, comments.date_add, comments.content, actors.name, users.firstname 
+	function getList($id_actor){
+		
+		$q = $this->db->prepare('SELECT comments.id, comments.date_add, comments.content, comments.id_actor, 
+			actors.name AS actors_name, 
+			users.firstname AS user_name
 			FROM comments 
 			INNER JOIN actors ON comments.id_actor = actors.id 
 			INNER JOIN users ON comments.id_user = users.id
+			WHERE comments.id_actor = :id_actor
 			ORDER BY date_add DESC');
+		
+		$q->bindValue(":id_actor", $id_actor, PDO::PARAM_INT);
+		$q->execute();
+
+		$q->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Comment');
 
 		$list = $q->fetchAll();
+		
 		return $list;
 	}
 
@@ -58,8 +68,13 @@ class CommentManager extends Manager{
 		return $comment;
 	}
 
-	function count(){
+	function count($id_actor){
 
-		return = $this->db->query('SELECT COUNT(*) FROM comments');
+		$q = $this->db->prepare('SELECT id FROM comments WHERE id_actor = :id_actor');
+		$q->bindValue(':id_actor', $id_actor, PDO::PARAM_INT);
+		$q->execute();
+		$nbComment = $q->rowCount();
+
+		return $nbComment;
 	}
 }

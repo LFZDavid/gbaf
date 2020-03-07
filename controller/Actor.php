@@ -7,7 +7,6 @@ class Actor{
 	protected $description;
 	protected $logo;
 
-
 	public function __construct($data = []){
 		if (!empty($data)){
 			$this->hydrate($data);

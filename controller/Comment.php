@@ -7,7 +7,7 @@ class Comment{
 	protected $date_add;
 	protected $content;
 
-	public function __construct($data){
+	public function __construct($data = []){
 		if(!empty($data)){
 			$this->hydrate($data);
 		}
