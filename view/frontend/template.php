@@ -1,16 +1,26 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
     <head>
-        <meta charset="utf-8" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
         <title><?= $title ?></title>
-        <link href="public/css/style.css" rel="stylesheet" /> 
+        <link href="public/css/style.css" rel="stylesheet" />
     </head>
         
     <body>
     	<header>
-    		<a href="index.php"><img src="public/img/logo-gbaf.png"/></a>
-            <?= $user_lastname ?>
-            <?= $user_firstname ?>
+            <div class="container-fluid">
+                <div id="header-logo">
+            		<a href="index.php"><img src="public/img/logo-gbaf.png"/></a>
+                </div>
+                <div id="header-user-infos">
+                    <?= $user_lastname ?>
+                    <?= $user_firstname ?>
+                </div>
+            </div>
     	</header>
         <?= $content ?>
         <footer>

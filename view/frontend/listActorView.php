@@ -4,6 +4,10 @@ $title = 'Acceuil';
 $user_lastname ="Nom";
 $user_firstname ="Prénom";
 ob_start();
+echo mb_strlen('testé', 'UTF-8');
+echo strlen('testé');
+$test = ("testé€çà");
+echo $test;
 
 ?>
 
@@ -16,7 +20,7 @@ ob_start();
 	foreach ($actors as $actor){
 		?>
 		<div class="actor-thumbnail">
-			<img class="logo-actor-mini"src="public/image/<?= $actor->logo()?>"><br/>
+			<img class="logo-actor-mini"src="public/img/<?= $actor->logo()?>"><br/>
 			<h3><?=$actor->name()?></h3><br/>
 			<?=$actor->description()?>
 			<a href="index.php?viewActor=<?=$actor->id()?>">
