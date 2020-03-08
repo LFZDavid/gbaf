@@ -1,0 +1,27 @@
+/*PALETTE*/
+https://www.code-couleur.com/palettes-2.html
+
+/* HEADER */
+
+header{
+	height: 100px;
+}
+
+header .container-fluid{
+	padding-top: 3%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	border-bottom: 1px solid #1a1d26;
+}
+
+#header-logo{
+	margin-right: auto;
+}
+#header-user-infos{
+	margin-left: auto;
+}
+
+#header-logo img{
+	height: 75px;
+}
