@@ -4,11 +4,11 @@ https://www.code-couleur.com/palettes-2.html
 /* HEADER */
 
 header{
-	height: 100px;
+	height: 15%;
 }
 
 header .container-fluid{
-	padding-top: 3%;
+	padding: 1% 1%;
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
@@ -23,5 +23,65 @@ header .container-fluid{
 }
 
 #header-logo img{
-	height: 75px;
+	width:70px;
+}
+
+/* listActorView */
+
+#gbaf_presentation h1{
+	font-size: 18px;
+}
+
+#gbaf_presentation{
+	border-bottom: 1px solid #1a1d26;
+}
+.actors-list{
+	border : 1px solid #1a1d26;
+	padding: 15px 7px;
+}
+.actor-thumbnail{
+	height: 90px;
+	border : 1px solid #1a1d26;
+	padding: 10px 5px 5px 5px;
+	margin-bottom: 5px;
+	display: flex;
+	justify-content: space-between;
+}
+.logo-and-text{
+	display: flex;
+	padding-bottom: 5px;
+	padding-right: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	word-wrap: break-word;
+}
+.logo-actor-mini{
+	float: left;
+	max-width : 150px;
+	max-height: 100px;
+	flex:1;
+}
+.logo-and-text h3{
+	margin: auto 0px 0px 7px;
+	flex:2;
+}
+.rdm-link{
+	margin-top: auto;
+	font-style: italic;
+
+}
+ /* FOOTER */
+footer{
+	display: flex;
+	justify-content: center;
+}
+
+/* Media queries */
+
+/*tablet*/
+@media screen and (max-device-width: 768px){
+}
+
+/*moblie*/
+@media screen and (max-device-width: 576px){
 }

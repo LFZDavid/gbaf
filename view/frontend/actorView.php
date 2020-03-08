@@ -36,11 +36,6 @@ ob_start();
 	<!--Bouton Nouveau commentaire-->
 	<a href="index.php?action=add_comment&amp;actor=<?=$actor->id()?>"><button>Nouveau commentaire</button></a>
 
-	<?php
-	var_dump($nbLike);
-	var_dump($nbDislike);
-	?>
-
 	<!--Bouton like-->
 	<a href="index.php?action=like&amp;actor=<?=$actor->id()?>"><button><?=$nbLike?> like</button></a>
 
