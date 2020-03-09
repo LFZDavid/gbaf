@@ -17,8 +17,15 @@
             		<a href="index.php"><img src="public/img/logo-gbaf.png"/></a>
                 </div>
                 <div id="header-user-infos">
-                    <?= $user_lastname ?>
-                    <?= $user_firstname ?>
+                    <?php
+                    if(!empty($_SESSION['lastname']) && !empty($_SESSION['firstname'])){
+                        $_SESSION['lastname'];
+                        $_SESSION['firstname'];
+                    ?>
+                        <a href="/gbaf/view/frontend/logout.php"><button>Déconnexion</button></a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
     	</header>

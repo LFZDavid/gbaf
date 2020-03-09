@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 function autoload($classname)
 {
   if (file_exists($file = __DIR__ . '/' . $classname . '.php'))

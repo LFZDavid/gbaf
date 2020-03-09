@@ -1,9 +1,8 @@
 <?php
 
 $title = 'Acceuil';
-$user_lastname ="Nom";
-$user_firstname ="Prénom";
 ob_start();
+
 
 ?>
 <section id="gbaf_presentation">

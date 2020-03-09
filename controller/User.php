@@ -10,7 +10,7 @@ class User{
 	protected $question;
 	protected $answer;
 
-	public function __construct($data){
+	public function __construct($data = []){
 		if(!empty($data)){
 			$this->hydrate($data);
 		}
@@ -24,10 +24,6 @@ class User{
 				$this->$method($value);
 			}
 		}
-	}
-
-	public function isNameExist($username){
-		return !empty($this->username);
 	}
 
 //GETTERS

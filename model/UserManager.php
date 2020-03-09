@@ -38,13 +38,11 @@ class UserManager extends Manager{
 
 	function getUnique($username){
 		$q = $this->db->prepare('SELECT * FROM users WHERE username = :username');
-		$q->bindValue(":username" , $username, PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE);
+		$q->bindValue(":username" , $username,);
 		$q->execute();
-
+		$q->setFetchMode( PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,'User');
 		$user = $q->fetch();
 
 		return $user;
-
-
 	}
 }

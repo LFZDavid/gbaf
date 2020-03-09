@@ -2,13 +2,28 @@
 require ('controller/frontend.php');
 
 try{
-	if(isset ($_GET['viewActor'])){
+	if(!empty($_SESSION)){
 
-		getActor($_GET['viewActor']);
+		if(isset ($_GET['viewActor'])){
+			getActor($_GET['viewActor']);
+		}
+		elseif(isset($_GET['action'])){
+			if($_GET['action'] == 'adduser'){
+				newUser();
+				header('Location: /gbaf/index.php');
+			}
+		}
+	listActors();
 	}
 	else{
-		listActors();
+		if(isset($_GET['action']) && $_GET["action"] == "connect"){
+			login();
+			header('Location: /gbaf/index.php');
+		}
+		header ('Location: /gbaf/view/frontend/login.php');
 	}
+	
+	
 }
 catch(Exception $e){
 	echo 'Erreur : ' .$e->getMessage();
