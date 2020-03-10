@@ -1,5 +1,6 @@
 <?php
 
+
 class VoteManager extends Manager
 {
 	protected $table = 'votes';

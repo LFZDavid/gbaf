@@ -1,31 +1,43 @@
 <?php
-require ('controller/frontend.php');
+
+require ('model/autoload.php');
+require ('controller/EntityController.php');
+require ('controller/ActorController.php');
+require ('controller/UserController.php');
+require ('controller/CommentController.php');
+require ('controller/VoteController.php');
+
+
+$ActorController = new ActorController();
+$UserController = new UserController();
 
 try{
-	if(!empty($_SESSION)){
-		if(empty($_GET)){
-			listActors();
+	if(isset($_GET['action'])){
+		if($_GET['action'] == 'connect'){
+			
+			$UserController->login();
 		}
-		if(isset ($_GET['viewActor'])){
-			getActor($_GET['viewActor']);
+		elseif($_GET['action'] == 'signup'){
+			
+			require ('view/frontend/signup.php');
 		}
-		elseif(isset($_GET['action'])){
-			if($_GET['action'] == 'adduser'){
-				newUser();
-				header('Location: /gbaf/index.php');
-			}
+		elseif($_GET['action'] == 'adduser'){
+			
+			$UserController->newUser();
 		}
-		
+	}
+	elseif(!empty($_SESSION)){
+		if(isset($_GET['actorView'])){
+			$ActorController->getActor($_GET['actorView']);
+		}
+		else{
+			$ActorController->listActors();
+		}
 	}
 	else{
-		if(isset($_GET['action']) && $_GET["action"] == "connect"){
-			login();
-			header('Location: /gbaf/index.php');
-		}
-		header ('Location: /gbaf/view/frontend/login.php');
+		echo 'Veuillez vous connecter !';
+		require ('view/frontend/login.php');
 	}
-	
-	
 }
 catch(Exception $e){
 	echo 'Erreur : ' .$e->getMessage();

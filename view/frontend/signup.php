@@ -32,4 +32,4 @@ ob_start();
 </form>
 
 <?php $content = ob_get_clean(); ?>
-<?php require ('template.php'); ?>
+<?php require ('view/frontend/template.php');?>

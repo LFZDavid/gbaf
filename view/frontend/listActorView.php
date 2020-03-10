@@ -38,7 +38,7 @@ ob_start();
 				<img class="logo-actor-mini"src="public/img/<?= $actor->logo()?>">
 				<h3><?=substr($actor->description(),0,50)?>...</h3>
 			</div>
-			<a href="index.php?viewActor=<?=$actor->id()?>" class="rdm-link">
+			<a href="index.php?actorView=<?=$actor->id()?>" class="rdm-link">
 				<button class="btn btn-default rdm-btn">lire la suite</button>
 			</a>
 		</div>

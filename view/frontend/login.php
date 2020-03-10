@@ -13,3 +13,7 @@ ob_start();
 	<input type="submit" name="Connection">
 
 </form>
+<a href="/gbaf/index.php?action=signup"><em>Inscription</em></a>
+
+<?php $content = ob_get_clean(); ?>
+<?php require ('view/frontend/template.php'); ?>
