@@ -14,15 +14,12 @@ $UserController = new UserController();
 try{
 	if(isset($_GET['action'])){
 		if($_GET['action'] == 'connect'){
-			
 			$UserController->login();
 		}
 		elseif($_GET['action'] == 'signup'){
-			
 			require ('view/frontend/signup.php');
 		}
 		elseif($_GET['action'] == 'adduser'){
-			
 			$UserController->newUser();
 		}
 	}

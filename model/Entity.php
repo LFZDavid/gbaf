@@ -10,7 +10,6 @@ abstract class Entity
 			$this->hydrate($data);
 		}
 	}
-
 	public function hydrate($data)
 	{
 		foreach($data as $attribut => $value){
@@ -21,18 +20,16 @@ abstract class Entity
 			}
 		}
 	}
-
 //GETTERS
 	public function id(){
 		return $this->id;
 	}
-
 //SETTERS
-	public function setId($id){
+	public function setId($id)
+	{
 		$id = (int) $id;
 		if($id > 0){
 			$this->id = $id;
 		}
 	}
-
 }

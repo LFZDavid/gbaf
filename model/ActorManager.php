@@ -19,7 +19,8 @@ class ActorManager extends Manager
 		return $actor;
 	}
 
-	function isExist($id){
+	function isExist($id)
+	{
 		$q = $this->db->prepare('SELECT id FROM actors WHERE id = :id');
 		$q->bindValue(':id',$id,PDO::PARAM_INT);
 		$q->execute();

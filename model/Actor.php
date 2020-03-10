@@ -8,27 +8,30 @@ class Actor extends Entity
 	protected $logo;
 
 	//GETTERS
-	public function name(){
+	public function name()
+	{
 		return $this->name;
 	}
-	public function description(){
+	public function description()
+	{
 		return $this->description;
 	}
-	public function logo(){
+	public function logo()
+	{
 		return $this->logo;
 	}
 
 	//SETTERS
-
-	public function setName($name){
+	public function setName($name)
+	{
 		$this->name = $name;
 	}
-
-	public function setDescription($description){
+	public function setDescription($description)
+	{
 		$this->description = $description;
 	}
-
-	public function setLogo($logo){
+	public function setLogo($logo)
+	{
 		$this->logo = $logo;
 	}
 }

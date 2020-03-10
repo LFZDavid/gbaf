@@ -3,7 +3,8 @@
 class UserController extends EntityController
 {
 	//Inscription//
-	function newUser(){
+	function newUser()
+	{
 		if(isset($_POST['lastname']) &&
 			isset($_POST['firstname']) &&
 			isset($_POST['username']) &&

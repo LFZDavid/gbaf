@@ -2,23 +2,18 @@
 
 $title = 'Acceuil';
 ob_start();
-
 ?>
 
 <div class="actors-infos">
 	<div class="logo-actor">
 		<img src="public/img/<?=$actor->logo()?>"alt="logo <?=$actor->name()?>">
 	</div>
-	<?php
-	?>
 	<h2><?= $actor->name()?></h2><!--lien ?-->
 	<p>
 		<?= $actor->description()?>
 	</p>
-
 </div>
 <div>
-
 	<!--Nombre de comments-->
 	<?php 
 	if($nbComment == 0){
@@ -33,13 +28,10 @@ ob_start();
 	?>
 	<!--Bouton Nouveau commentaire-->
 	<a href="index.php?action=add_comment&amp;actor=<?=$actor->id()?>"><button>Nouveau commentaire</button></a>
-
 	<!--Bouton like-->
 	<a href="index.php?action=like&amp;actor=<?=$actor->id()?>"><button><?=$nbLike?> like</button></a>
-
 	<!--Bouton dislike-->
 	<a href="index.php?action=dislike&amp;actor=<?=$actor->id()?>"><button>dislike <?=$nbDislike?></button></a>
-
 	<!--Liste des commentaires-->
 	<?php
 	foreach ($comments as $comment) {
@@ -54,6 +46,5 @@ ob_start();
 	}
 	?>
 </div>
-
 <?php $content = ob_get_clean(); ?>
 <?php require ('view/frontend/template.php'); ?>

@@ -19,8 +19,8 @@
                 <div id="header-user-infos">
                     <?php
                     if(!empty($_SESSION['lastname']) && !empty($_SESSION['firstname'])){
-                        $_SESSION['lastname'];
-                        $_SESSION['firstname'];
+                        echo $_SESSION['lastname'].' ';
+                        echo $_SESSION['firstname'];
                     ?>
                         <a href="/gbaf/view/frontend/logout.php"><button>Déconnexion</button></a>
                     <?php
