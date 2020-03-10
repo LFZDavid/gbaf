@@ -3,7 +3,9 @@ require ('controller/frontend.php');
 
 try{
 	if(!empty($_SESSION)){
-
+		if(empty($_GET)){
+			listActors();
+		}
 		if(isset ($_GET['viewActor'])){
 			getActor($_GET['viewActor']);
 		}
@@ -13,7 +15,7 @@ try{
 				header('Location: /gbaf/index.php');
 			}
 		}
-	listActors();
+		
 	}
 	else{
 		if(isset($_GET['action']) && $_GET["action"] == "connect"){

@@ -1,10 +1,6 @@
 <?php
 
 require ('model/autoload.php');
-require ('controller/Actor.php');
-require ('controller/User.php');
-require ('controller/Comment.php');
-require ('controller/Vote.php');
 
 function listActors(){
 	$actorManager = new ActorManager();
@@ -22,7 +18,7 @@ function getActor($id_actor){
 	
 	if($id_actor > 0 && $isActorExist){
 		$actor = $actorManager->getUnique($id_actor);
-		$comments = $commentManager->getList($id_actor);
+		$comments = $commentManager->getListByActor($id_actor);
 		$nbComment = $commentManager->count($id_actor);
 		$nbLike = $voteManager->getLikeCount($id_actor);
 		$nbDislike = $voteManager->getDislikeCount($id_actor);

@@ -1,6 +1,10 @@
 <?php
 
-class VoteManager extends Manager{
+class VoteManager extends Manager
+{
+	protected $table = 'votes';
+	protected $classManaged = 'Vote';
+
 	function add(Vote $vote){
 		$q = $this->db->prepare('INSERT INTO votes(id_user, id_actor, dolike) VALUES(:id_user, :id_actor, :dolike)');
 		
@@ -26,7 +30,7 @@ class VoteManager extends Manager{
 		$q->execute($id);
 	}
 
-	function getUnique($id_actor, $id_user){
+	function getUniqueByUserAndActor($id_actor, $id_user){
 		$q = $this->db->prepare('SELECT * FROM votes WHERE id_actor = :id_actor, id_user = :id_user');
 		$q->bindValue(':id_actor' , (int) $id_actor, PDO::PARAM_INT);
 		$q->bindValue(':id_user' , (int) $id_user, PDO::PARAM_INT);

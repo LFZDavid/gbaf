@@ -1,6 +1,10 @@
 <?php
 
-class UserManager extends Manager{
+class UserManager extends Manager
+{
+	protected $table = 'users';
+	protected $classManaged = 'User';
+
 
 	function add(User $user){
 		$q = $this->db->prepare('INSERT INTO users(lastname, firstname, username, pwd, question, answer) VALUES(:lastname, :firstname, :username, :pwd, :question, :answer)');
