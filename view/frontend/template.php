@@ -19,6 +19,7 @@
                 <div id="header-user-infos">
                     <?php
                     if(!empty($_SESSION['lastname']) && !empty($_SESSION['firstname'])){
+                        echo '<a href="/gbaf/index.php?view=profile">Profile </a>';
                         echo $_SESSION['lastname'].' ';
                         echo $_SESSION['firstname'];
                     ?>

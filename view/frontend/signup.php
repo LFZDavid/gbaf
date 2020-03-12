@@ -15,10 +15,10 @@ ob_start();
 	<label for="username">Pseudo</label>
 	<input type="text" id="username" name="username"><br/>
 	
-	<label for="pwd">password</label>
+	<label for="pwd">Password</label>
 	<input type="password" id="pwd" name="pwd"><br/>
 
-	<label for="verif">password</label>
+	<label for="verif">Vérification</label>
 	<input type="password" id="verif" name="verif"><br/>
 	
 	<label for="question">Question secrète</label>

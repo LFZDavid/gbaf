@@ -26,14 +26,9 @@ class UserManager extends Manager
 		$q->bindValue('pwd' , $user->pwd());
 		$q->bindValue('question' , $user->question());
 		$q->bindValue('answer' , $user->answer());
-		$q->bindValue('id' , $user->id());
 		$q->execute();
 	}
-	function delete($id)
-	{
-		$q = $this->db->prepare('DELETE FROM users WHERE id = ?');
-		$q->execute($id);
-	}
+	
 	function getUnique($username)
 	{
 		$q = $this->db->prepare('SELECT * FROM users WHERE username = :username');

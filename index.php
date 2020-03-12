@@ -24,7 +24,12 @@ try{
 		}
 	}
 	elseif(!empty($_SESSION)){
-		if(isset($_GET['actorView'])){
+		if(isset($_GET['view'])){
+			if($_GET['view'] == 'profile'){
+				$UserController->getUser($_SESSION['username']);
+			}
+		}
+		elseif(isset($_GET['actorView'])){
 			$ActorController->getActor($_GET['actorView']);
 		}
 		else{

@@ -3,7 +3,7 @@
 class UserController extends EntityController
 {
 	//Inscription//
-	function newUser()
+	public function newUser()
 	{
 		if(isset($_POST['lastname']) &&
 			isset($_POST['firstname']) &&
@@ -32,7 +32,7 @@ class UserController extends EntityController
 					$newUser = new User($data);
 					$userManager->add($newUser);
 					echo 'Vous êtes inscrit !';
-					login();
+					$this->login();
 	 			}
 	 			else{
 	 				echo("Le mot de passe saisie et la vérification ne correspondent pas !");
@@ -47,7 +47,7 @@ class UserController extends EntityController
 	}
 
 // Login
-	function login()
+	public function login()
 	{
 		if(isset($_POST['username']) &&
 			isset($_POST['pwd'])){
@@ -57,7 +57,7 @@ class UserController extends EntityController
 			if(!empty($user)){
 				$isPasswordCorrect = password_verify($_POST['pwd'], $user->pwd());
 				if($isPasswordCorrect){
-					$_SESSION['user_id'] = $user->id();
+					$_SESSION['username'] = $user->username();
 					$_SESSION['lastname'] = htmlspecialchars($user->lastname());
 					$_SESSION['firstname'] = htmlspecialchars($user->firstname());
 					echo 'Vous êtes connecté !';
@@ -77,5 +77,12 @@ class UserController extends EntityController
 			"Veuillez remplir tous les champs!";
 			require ('view/frontend/login.php');
 		}
+	}
+	// Profile
+	public function getUser($username)
+	{
+		$UserManager = new UserManager();
+		$user = $UserManager->getUnique($username);
+		require ('view/frontend/profileView.php');
 	}
 }
