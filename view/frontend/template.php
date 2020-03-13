@@ -32,7 +32,9 @@
     	</header>
         <?= $content ?>
         <footer>
-            |<a href="#"> Mentions légales </a>|<a href="#"> Contact </a>|            
+            <div class="footer-content">
+                |<a href="#"> Mentions légales </a>|<a href="#"> Contact </a>|
+            </div>            
         </footer>
     </body>
 </html>

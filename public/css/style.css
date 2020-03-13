@@ -26,15 +26,27 @@ header .container-fluid{
 	width:70px;
 }
 
+/* Bannière */
+.banniere{
+	height: 200px;
+	width: 100%;
+	background-image: url(../img/banniere2.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 /* listActorView */
 
-#gbaf_presentation h1{
+.gbaf_presentation{
+	border-bottom: 1px solid #1a1d26;
 	font-size: 18px;
 }
 
-#gbaf_presentation{
-	border-bottom: 1px solid #1a1d26;
+.actor-text{
+	font-size:17px;
 }
+
 .actors-list{
 	border : 1px solid #1a1d26;
 	padding: 15px 7px;
@@ -45,35 +57,42 @@ header .container-fluid{
 	padding: 10px 5px 5px 5px;
 	margin-bottom: 5px;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 }
-.logo-and-text{
+.logo{
 	display: flex;
 	padding-bottom: 5px;
 	padding-right: 20px;
-	overflow: hidden;
-	white-space: nowrap;
-	word-wrap: break-word;
 }
 .logo-actor-mini{
-	float: left;
 	max-width : 150px;
 	max-height: 100px;
 	flex:1;
 }
-.logo-and-text h3{
+.actor-description{
 	margin: auto 0px 0px 7px;
 	flex:2;
 }
-.rdm-link{
-	margin-top: auto;
-	font-style: italic;
-
+.actor-description>h3{
+	font-size: 16px;
 }
+.rdm{
+	font-style: italic;
+	margin: auto 0px 0px 0px;
+}
+.rdm-btn{
+	font-size: 13px;
+ 
  /* FOOTER */
+}
 footer{
 	display: flex;
-	justify-content: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    height: 100px;
 }
 
 /* Media queries */
