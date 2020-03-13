@@ -25,4 +25,25 @@ abstract class Manager
 		$list = $q->fetchAll();
 		return $list;
 	}
+
+	public function getUniqueById($id)
+	{
+		$request = 'SELECT * FROM '.$this->table.' WHERE id =:id'; 
+		$q = $this->db->prepare($request);
+		$q->bindValue(':id', $id, PDO::PARAM_INT);
+		$q->execute();
+		$q->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classManaged);
+		return $q->fetch();
+	}
+
+	public function isExist($id)
+	{
+		$request = 'SELECT id FROM '.$this->table.' WHERE id = :id';
+		$q = $this->db->prepare($request);
+		$q->bindValue(':id',$id,PDO::PARAM_INT);
+		$q->execute();
+		$result = $q->fetch();
+
+		return $result;
+	}
 }

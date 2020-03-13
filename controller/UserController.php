@@ -135,7 +135,7 @@ class UserController extends EntityController
 
 		$NewUser = new User($data);
 		$UserManager->update($NewUser);
-		echo 'Vos informations ont été mises à jour!';
 		header ('Location:/gbaf/index.php?view=profile');
+		echo 'Vos informations ont été mises à jour!';
 	}
 }

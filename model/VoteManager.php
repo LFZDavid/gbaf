@@ -22,11 +22,7 @@ class VoteManager extends Manager
 		$q->bindValue(':dolike' , $vote->dolike());
 		$q->execute();
 	}
-	function delete($id)
-	{
-		$q = $this->db->prepare('DELETE FROM votes WHERE id = ?');
-		$q->execute($id);
-	}
+	
 	function getUniqueByUserAndActor($id_actor, $id_user)
 	{
 		$q = $this->db->prepare('SELECT * FROM votes WHERE id_actor = :id_actor, id_user = :id_user');

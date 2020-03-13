@@ -5,7 +5,7 @@ ob_start();
 
 ?>
 
-<
+
 <!--MODIFIER LES INFOS-->
 <fieldset>
 	<legend>Paramètres du compte</legend>

@@ -29,6 +29,7 @@ class UserManager extends Manager
 		$q->bindValue(':id', $user->id());
 		$q->execute();
 	}
+	
 	public function isNewUsernameExist($user_id, $username)
 	{
 		$q = $this->db->prepare('SELECT username FROM users WHERE id<> :user_id AND username = :username');
@@ -49,16 +50,4 @@ class UserManager extends Manager
 		$user = $q->fetch();
 		return $user;
 	}
-
-	public function getUniqueById($user_id)
-	{
-		$q = $this->db->prepare('SELECT * FROM users WHERE id = :id');
-		$q->bindValue(":id", $user_id,);
-		$q->execute();
-		$q->setFetchMode( PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
-		$user = $q->fetch();
-		return $user;
-	}
-
-
 }

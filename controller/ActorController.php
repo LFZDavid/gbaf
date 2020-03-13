@@ -18,7 +18,7 @@ class ActorController extends EntityController
 		$isActorExist = $actorManager->isExist($id_actor);
 	
 		if($id_actor > 0 && $isActorExist){
-			$actor = $actorManager->getUnique($id_actor);
+			$actor = $actorManager->getUniqueById($id_actor);
 			$comments = $commentManager->getListByActor($id_actor);
 			$nbComment = $commentManager->count($id_actor);
 			$nbLike = $voteManager->getLikeCount($id_actor);
