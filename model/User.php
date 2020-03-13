@@ -9,6 +9,7 @@ class User extends Entity
 	protected $question;
 	protected $answer;
 //GETTERS
+	
 	public function lastname()
 	{
 		return $this->lastname;

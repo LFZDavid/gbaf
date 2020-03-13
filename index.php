@@ -22,11 +22,14 @@ try{
 		elseif($_GET['action'] == 'adduser'){
 			$UserController->newUser();
 		}
+		elseif($_GET['action'] == 'update_user'){
+				$UserController->update($_SESSION['user_id']);
+		}
 	}
 	elseif(!empty($_SESSION)){
 		if(isset($_GET['view'])){
 			if($_GET['view'] == 'profile'){
-				$UserController->getUser($_SESSION['username']);
+				$UserController->getUser($_SESSION['user_id']);
 			}
 		}
 		elseif(isset($_GET['actorView'])){

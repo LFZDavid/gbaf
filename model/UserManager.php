@@ -6,7 +6,7 @@ class UserManager extends Manager
 	protected $classManaged = 'User';
 
 
-	function add(User $user)
+	public function add(User $user)
 	{
 		$q = $this->db->prepare('INSERT INTO users(lastname, firstname, username, pwd, question, answer) VALUES(:lastname, :firstname, :username, :pwd, :question, :answer)');
 		$q->bindValue(':firstname' , $user->firstname());
@@ -17,19 +17,30 @@ class UserManager extends Manager
 		$q->bindValue(':answer' , $user->answer());
 		$q->execute();
 	}
-	function update(User $user)
+	public function update(User $user)
 	{
 		$q = $this->db->prepare('UPDATE users SET lastname = :lastname, firstname = :firstname, username = :username, pwd = :pwd, question = :question, answer = :answer WHERE id = :id');
-		$q->bindValue('lastname' , $user->lastname());
-		$q->bindValue('firstname' , $user->firstname());
-		$q->bindValue('username' , $user->username());
-		$q->bindValue('pwd' , $user->pwd());
-		$q->bindValue('question' , $user->question());
-		$q->bindValue('answer' , $user->answer());
+		$q->bindValue(':lastname', $user->lastname());
+		$q->bindValue(':firstname', $user->firstname());
+		$q->bindValue(':username', $user->username());
+		$q->bindValue(':pwd', $user->pwd());
+		$q->bindValue(':question', $user->question());
+		$q->bindValue(':answer', $user->answer());
+		$q->bindValue(':id', $user->id());
 		$q->execute();
 	}
+	public function isNewUsernameExist($user_id, $username)
+	{
+		$q = $this->db->prepare('SELECT username FROM users WHERE id<> :user_id AND username = :username');
+		$q->bindValue(":user_id", $user_id,PDO::PARAM_INT);
+		$q->bindValue(':username', $username,);
+		$q->execute();
+
+		return $q->fetch();
+	}
+
 	
-	function getUnique($username)
+	public function getUniqueByUsername($username)
 	{
 		$q = $this->db->prepare('SELECT * FROM users WHERE username = :username');
 		$q->bindValue(":username" , $username,);
@@ -38,4 +49,16 @@ class UserManager extends Manager
 		$user = $q->fetch();
 		return $user;
 	}
+
+	public function getUniqueById($user_id)
+	{
+		$q = $this->db->prepare('SELECT * FROM users WHERE id = :id');
+		$q->bindValue(":id", $user_id,);
+		$q->execute();
+		$q->setFetchMode( PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
+		$user = $q->fetch();
+		return $user;
+	}
+
+
 }

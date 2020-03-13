@@ -22,7 +22,14 @@ ob_start();
 	<input type="password" id="verif" name="verif"><br/>
 	
 	<label for="question">Question secrète</label>
-	<input type="text" id="question" name="question"><br/>
+	<select id="question" name="question">
+		<option value="" disabled selected>Choisir une question sectrete</option>
+		<option value="Quel est le nom de votre premier animal de compagnie ?">Quel est le nom de votre premier animal de compagnie ?</option>
+		<option value="Quel est le nom de la rue où vous avez grandis ?">Quel est le nom de la rue où vous avez grandis ?</option>
+		<option value="Quel est votre star préférée ?">Quel est votre star préférée ?</option>
+		<option value="Quel est la marque de votre première voiture ?">Quel est la marque de votre première voiture ?</option>
+		<option value="Quel est votre série préférée ?">Quel est votre série préférée ?</option>
+	</select>
 	
 	<label for="answer">Réponse</label>
 	<input type="text" id="answer" name="answer"><br/>

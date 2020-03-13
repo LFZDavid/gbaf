@@ -1,20 +1,39 @@
 <?php
 
-$title = "Mon profil";
+$title = "Paramètres du compte";
 ob_start();
 
 ?>
 
 <
 <!--MODIFIER LES INFOS-->
-<!---->
 <fieldset>
-	<legend>Vos infos</legend>
-	<p>
-		<h3>Nom : <?=$user->lastname()?></h3>
-		<h3>Prénom : <?=$user->firstname()?></h3>
-		<h3>Username : <?=$user->username()?></h3>
-	</p>
+	<legend>Paramètres du compte</legend>
+	<form action="/gbaf/index.php?action=update_user" method="post">
+		<label for="lastname">Nom :</label>
+		<input type="text" name="lastname" id="lastname" value="<?=$user->lastname()?>"><br/>
+		
+		<label for="firstname">Prénom :</label>
+		<input type="text" name="firstname" id="firstname" value="<?=$user->firstname()?>"><br/>
+		
+		<label for="username">Username :</label>
+		<input type="text" name="username" id="username" value="<?=$user->username()?>"><br/>
+
+		<label for="question">Question secrete :</label>
+		<select id="question" name="question">
+			<option value="<?=$user->question()?>" selected><?=$user->question()?></option>
+			<option value="Quel est le nom de votre premier animal de compagnie ?">Quel est le nom de votre premier animal de compagnie ?</option>
+			<option value="Quel est le nom de la rue où vous avez grandis ?">Quel est le nom de la rue où vous avez grandis ?</option>
+			<option value="Quel est votre star préférée ?">Quel est votre star préférée ?</option>
+			<option value="Quel est la marque de votre première voiture ?">Quel est la marque de votre première voiture ?</option>
+			<option value="Quel est votre série préférée ?">Quel est votre série préférée ?</option>
+		</select><br/>
+
+		<label for="answer">Réponse :</label>
+		<input type="text" name="answer" id="answer"value="<?=$user->answer()?>"><br/>
+
+		<input type="submit" name="Valider" value="Modifier">
+	</form>
 </fieldset>
 
 

@@ -14,7 +14,7 @@ class UserController extends EntityController
 
 			$userManager = new UserManager();
 			
-			if($userManager->getUnique($_POST['username'])){
+			if($userManager->getUniqueByUsername($_POST['username'])){
 				echo("Cet username n'est pas disponible");
 				require('../gbaf/view/frontend/signup.php');
 			}
@@ -53,13 +53,14 @@ class UserController extends EntityController
 			isset($_POST['pwd'])){
 			$userManager = new UserManager();
 
-			$user = $userManager->getUnique($_POST['username']);
+			$user = $userManager->getUniqueByUsername($_POST['username']);
 			if(!empty($user)){
 				$isPasswordCorrect = password_verify($_POST['pwd'], $user->pwd());
 				if($isPasswordCorrect){
-					$_SESSION['username'] = $user->username();
-					$_SESSION['lastname'] = htmlspecialchars($user->lastname());
-					$_SESSION['firstname'] = htmlspecialchars($user->firstname());
+					$_SESSION['user_id'] = ($user->id());
+					$_SESSION['lastname'] = $user->lastname();
+					$_SESSION['firstname'] = $user->firstname();
+
 					echo 'Vous êtes connecté !';
 					header('Location:/gbaf/index.php');
 				}
@@ -79,10 +80,62 @@ class UserController extends EntityController
 		}
 	}
 	// Profile
-	public function getUser($username)
+	public function getUser($user_id)
 	{
 		$UserManager = new UserManager();
-		$user = $UserManager->getUnique($username);
+		$user = $UserManager->getUniqueById($user_id);
 		require ('view/frontend/profileView.php');
+	}
+	// Modifier user
+	public function update($user_id)
+	{
+		$UserManager = new UserManager();
+		$user = $UserManager->getUniqueById($user_id);
+
+		$newLastname = $user->lastname();
+		$newFirstname = $user->firstname();
+		$newUsername = $user->username();
+		$newPwd = $user->pwd();
+		$newQuestion = $user->question();
+		$newAnswer = $user->answer();
+
+		if(!empty($_POST['lastname'])){
+			$newLastname = $_POST['lastname'];
+		}
+		if(!empty($_POST['firstname'])){
+			$newFirstname = $_POST['firstname'];
+		}
+		if(!empty($_POST['username'])){
+			if(!$UserManager->isNewUsernameExist($user_id, $_POST['username'])){
+				$newUsername = $_POST['username'];
+			}
+			else{
+				throw new Exception("Ce username n'est pas disponible");
+			}
+		}
+		if(!empty($_POST['pwd'])){
+			$newPwd = $_POST['pwd'];
+		}
+		if(!empty($_POST['question'])){
+			$newQuestion = $_POST['question'];
+		}
+		if(!empty($_POST['answer'])){
+			$newAnswer = $_POST['answer'];
+		}
+
+		$data = array(
+		'id' => $user->id(),
+		'lastname' => $newLastname,
+		'firstname' => $newFirstname,
+		'username' => $newUsername,
+		'pwd' => $newPwd,
+		'question' => $newQuestion,
+		'answer' => $newAnswer
+		);
+
+		$NewUser = new User($data);
+		$UserManager->update($NewUser);
+		echo 'Vos informations ont été mises à jour!';
+		header ('Location:/gbaf/index.php?view=profile');
 	}
 }
