@@ -46,7 +46,7 @@ class UserManager extends Manager
 		$q = $this->db->prepare('SELECT * FROM users WHERE username = :username');
 		$q->bindValue(":username" , $username,);
 		$q->execute();
-		$q->setFetchMode( PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,'User');
+		$q->setFetchMode( PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classManaged);
 		$user = $q->fetch();
 		return $user;
 	}

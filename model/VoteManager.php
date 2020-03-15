@@ -29,7 +29,7 @@ class VoteManager extends Manager
 		$q->bindValue(':id_actor' , (int) $id_actor, PDO::PARAM_INT);
 		$q->bindValue(':id_user' , (int) $id_user, PDO::PARAM_INT);
 		$q->execute();
-		$q->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Vote');
+		$q->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classManaged);
 		$vote = $q->fetch();
 		return $vote;
 	}

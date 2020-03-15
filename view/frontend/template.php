@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
         <title><?= $title ?></title>
+        <link href="/gbaf/public/fontawesome-free-5.12.1-web/css/all.css" rel="stylesheet">
         <link href="public/css/style.css" rel="stylesheet" />
     </head>
         
@@ -19,11 +20,10 @@
                 <div id="header-user-infos">
                     <?php
                     if(!empty($_SESSION['lastname']) && !empty($_SESSION['firstname'])){
-                        echo '<a href="/gbaf/index.php?view=profile">Profile </a>';
-                        echo $_SESSION['lastname'].' ';
+                        echo '<a href="/gbaf/index.php?view=profile"><i class="fas fa-user-circle fa-lg"></i></a>';
+                        echo ' '.$_SESSION['lastname'].' ';
                         echo $_SESSION['firstname'];
                     ?>
-                        <a href="/gbaf/view/frontend/logout.php"><button>Déconnexion</button></a>
                     <?php
                     }
                     ?>

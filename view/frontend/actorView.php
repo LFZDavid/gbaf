@@ -33,18 +33,18 @@ ob_start();
 	<!--Bouton dislike-->
 	<a href="index.php?action=dislike&amp;actor=<?=$actor->id()?>"><button>dislike <?=$nbDislike?></button></a>
 	<!--Liste des commentaires-->
-	<?php
-	foreach ($comments as $comment) {
-	?>
-		<div class="list-comment">
-			De : <?=$comment->user_name?><br/>
-			<?=$comment->date_add()?><br/>
-			Commentaire : <br/>
-			<?=$comment->content()?><br/>
-		</div>
-	<?php
-	}
-	?>
+	<div class="list-comment">
+		<?php
+		foreach ($comments as $comment) {
+		?>
+				De : <?=$comment->user_name?><br/>
+				<?=$comment->date_add()?><br/>
+				Commentaire : <br/>
+				<?=$comment->content()?><br/>
+		<?php
+		}
+		?>
+	</div>
 </div>
 <?php $content = ob_get_clean(); ?>
 <?php require ('view/frontend/template.php'); ?>

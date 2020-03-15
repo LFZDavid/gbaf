@@ -5,7 +5,7 @@ ob_start();
 
 ?>
 
-
+<a id="deco-btn"href="/gbaf/view/frontend/logout.php"><button>Déconnexion</button></a>
 <!--MODIFIER LES INFOS-->
 <fieldset>
 	<legend>Paramètres du compte</legend>

@@ -15,7 +15,10 @@ class UserController extends EntityController
 			$userManager = new UserManager();
 			
 			if($userManager->getUniqueByUsername($_POST['username'])){
-				echo("Cet username n'est pas disponible");
+				?>
+				<script type="text/javascript">alert("Cet username n'est pas disponible");
+				</script>
+				<?php
 				require('../gbaf/view/frontend/signup.php');
 			}
 			else{
@@ -35,13 +38,19 @@ class UserController extends EntityController
 					$this->login();
 	 			}
 	 			else{
-	 				echo("Le mot de passe saisie et la vérification ne correspondent pas !");
+	 				?>
+					<script type="text/javascript">alert("Le mot de passe saisie et la vérification ne correspondent pas !");
+					</script>
+					<?php
 	 				require('../gbaf/view/frontend/signup.php');
 	 			}
 			}
 		}
 		else {
-			echo("Le formulaire n'est pas complété");
+			?>
+			<script type="text/javascript">alert("Le formulaire n'est pas complété");
+			</script>
+			<?php
 			require('../gbaf/view/frontend/signup.php');
 		}
 	}
@@ -70,12 +79,17 @@ class UserController extends EntityController
 				}
 			}
 			else{
-				echo"Username ou mot de passe incorrect !";
+				?>
+				<script type="text/javascript">alert("Username ou mot de passe incorrect !");
+				</script>
+				<?php
 				require ('view/frontend/login.php');
 			}
 		}
 		else{
-			"Veuillez remplir tous les champs!";
+			?>
+			<script type="text/javascript">alert("Veuillez remplir tous les champs!");</script>
+			<?php
 			require ('view/frontend/login.php');
 		}
 	}
@@ -110,7 +124,12 @@ class UserController extends EntityController
 				$newUsername = $_POST['username'];
 			}
 			else{
-				throw new Exception("Ce username n'est pas disponible");
+			?>
+			<script type="text/javascript">
+					alert("Ce username n'est pas disponible !");
+			</script>
+			<?php
+			require ('view/frontend/profileView.php');
 			}
 		}
 		if(!empty($_POST['pwd'])){
@@ -136,6 +155,5 @@ class UserController extends EntityController
 		$NewUser = new User($data);
 		$UserManager->update($NewUser);
 		header ('Location:/gbaf/index.php?view=profile');
-		echo 'Vos informations ont été mises à jour!';
 	}
 }
