@@ -1,5 +1,10 @@
 <?php
 
+//namespace Gbaf\Controller;
+
+//use \Gbaf\Controller\EntityController;
+//use \Gbaf\Manager\UserManager; 
+
 class UserController extends EntityController
 {
 	//Inscription//
@@ -15,10 +20,7 @@ class UserController extends EntityController
 			$userManager = new UserManager();
 			
 			if($userManager->getUniqueByUsername($_POST['username'])){
-				?>
-				<script type="text/javascript">alert("Cet username n'est pas disponible");
-				</script>
-				<?php
+				$this->message('Cet username n\'est pas disponible ! Veuillez en choisir un autre svp.');
 				require('../gbaf/view/frontend/signup.php');
 			}
 			else{
@@ -38,19 +40,13 @@ class UserController extends EntityController
 					$this->login();
 	 			}
 	 			else{
-	 				?>
-					<script type="text/javascript">alert("Le mot de passe saisie et la vérification ne correspondent pas !");
-					</script>
-					<?php
+	 				$this->message('La vérification ne correspond pas au mot de passe.');
 	 				require('../gbaf/view/frontend/signup.php');
 	 			}
 			}
 		}
 		else {
-			?>
-			<script type="text/javascript">alert("Le formulaire n'est pas complété");
-			</script>
-			<?php
+			$this->message('Le formulaire n\'est pas complet !');
 			require('../gbaf/view/frontend/signup.php');
 		}
 	}
@@ -74,22 +70,17 @@ class UserController extends EntityController
 					header('Location:/gbaf/index.php');
 				}
 				else{
-				echo"Username ou mot de passe incorrect !";
+					$this->message('Username ou mot de passe incorrect !');
 				require ('view/frontend/login.php');
 				}
 			}
 			else{
-				?>
-				<script type="text/javascript">alert("Username ou mot de passe incorrect !");
-				</script>
-				<?php
+				$this->message('Username ou mot de passe incorrect !');
 				require ('view/frontend/login.php');
 			}
 		}
 		else{
-			?>
-			<script type="text/javascript">alert("Veuillez remplir tous les champs!");</script>
-			<?php
+			$this->message('Veuillez remplir tous les champs!');
 			require ('view/frontend/login.php');
 		}
 	}
@@ -124,12 +115,8 @@ class UserController extends EntityController
 				$newUsername = $_POST['username'];
 			}
 			else{
-			?>
-			<script type="text/javascript">
-					alert("Ce username n'est pas disponible !");
-			</script>
-			<?php
-			require ('view/frontend/profileView.php');
+				$this->message('Ce username n\'est pas disponible !');
+				require ('view/frontend/profileView.php');
 			}
 		}
 		if(!empty($_POST['pwd'])){
@@ -154,6 +141,47 @@ class UserController extends EntityController
 
 		$NewUser = new User($data);
 		$UserManager->update($NewUser);
-		header ('Location:/gbaf/index.php?view=profile');
+		$this->message('Votre profile a été mis à jour !');
+		$_SESSION['lastname'] = $newLastname;
+		$_SESSION['firstname'] = $newFirstname;
+		$this->getUser($_SESSION['user_id']);
+	}
+
+	//Mot de passe oublié
+	public function getUserQuestion($username)
+	{
+		if(!empty($username)){
+				$UserManager = new UserManager();
+				$user = $UserManager->getUniqueByUsername($username);
+			if($user){
+				require('view/frontend/changepwd.php');
+			}
+			else{
+					$this->message("Ce username n'existe pas !");
+					require('view/frontend/forgotpwd.php');
+			}
+		}
+	}
+
+	public function changePwd($username,$answer, $new_pwd, $verif_pwd)
+	{
+		if($new_pwd	== $verif_pwd){
+			$UserManager = new UserManager();
+			$user = $UserManager->getUniqueByUsername($username);
+			if($user->answer() == $answer){
+				$new_pwd = password_hash($new_pwd, PASSWORD_DEFAULT);
+				$UserManager->updatePwd($user->id(), $new_pwd);
+				$this->message("Mot de passe mis à jour !");
+				require('view/frontend/login.php');
+			}
+			else{
+				$this->message("La réponse est fausse");
+				$this->getUserQuestion($username);
+			}
+		}
+		else{
+			$this->message("Le nouveau mot de passe et la vérification	ne correspondent pas.");
+			$this->getUserQuestion($username);
+		}
 	}
 }

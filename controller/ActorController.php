@@ -1,5 +1,10 @@
 <?php
 
+//namespace Gbaf\Controller;
+
+//use \Gbaf\Controller\EntityController;
+//use \Gbaf\Manager\ActorManager;
+
 class ActorController extends EntityController
 {
 	function listActors()
@@ -18,7 +23,7 @@ class ActorController extends EntityController
 		$isActorExist = $actorManager->isExist($id_actor);
 
 		if(!$isActorExist){
-			throw new Exception('Acteur/Partenaire inexistant !');
+			$this->message('Acteur/Partenaire inexistant !');
 			header('Location: index.php');
 		}
 		else{

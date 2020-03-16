@@ -1,13 +1,10 @@
 
 <?php
 
-require ('model/autoload.php');
-require ('controller/EntityController.php');
-require ('controller/ActorController.php');
-require ('controller/UserController.php');
-require ('controller/CommentController.php');
-require ('controller/VoteController.php');
+require_once('autoload.php');
 
+//use \Gbaf\Controller\ActorController as ActorController;
+//use \Gbaf\Controller\UserController	as UserController;
 
 $ActorController = new ActorController();
 $UserController = new UserController();
@@ -25,6 +22,16 @@ try{
 		}
 		elseif($_GET['action'] == 'update_user'){
 				$UserController->update($_SESSION['user_id']);
+		}
+		elseif($_GET['action']== 'forgot_pwd'){
+			$UserController->getUserQuestion($_POST['username']);
+		}
+		elseif($_GET['action']== 'change_pwd'){
+			$UserController->changePwd( 
+				$_POST['username'],
+				$_POST['answer'],
+				$_POST['newpwd'],
+				$_POST['verif']);
 		}
 	}
 	elseif(!empty($_SESSION)){

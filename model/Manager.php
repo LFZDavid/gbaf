@@ -1,5 +1,9 @@
 <?php
 
+//namespace Gbaf\Manager;
+
+//use \PDO as PDO;
+
 abstract class Manager
 {
 	protected $db;
@@ -9,7 +13,7 @@ abstract class Manager
 	public function __construct()
 	{
 		try{
-			$this->db = new \PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root' , '');
+			$this->db = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root' , '');
 			$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		catch (PDOException $e){
@@ -28,6 +32,7 @@ abstract class Manager
 
 	public function getUniqueById($id)
 	{
+
 		$request = 'SELECT * FROM '.$this->table.' WHERE id =:id'; 
 		$q = $this->db->prepare($request);
 		$q->bindValue(':id', $id, PDO::PARAM_INT);

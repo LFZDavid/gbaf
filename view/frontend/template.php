@@ -8,14 +8,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
         <title><?= $title ?></title>
         <link href="/gbaf/public/fontawesome-free-5.12.1-web/css/all.css" rel="stylesheet">
-        <link href="public/css/style.css" rel="stylesheet" />
+        <link href="/gbaf/public/css/style.css" rel="stylesheet" />
     </head>
         
     <body>
     	<header>
             <div class="container-fluid">
                 <div id="header-logo">
-            		<a href="index.php"><img src="public/img/logo-gbaf.png"/></a>
+            		<a href="/gbaf/index.php"><img src="/gbaf/public/img/logo-gbaf.png"/></a>
                 </div>
                 <div id="header-user-infos">
                     <?php

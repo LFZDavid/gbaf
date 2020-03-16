@@ -50,4 +50,12 @@ class UserManager extends Manager
 		$user = $q->fetch();
 		return $user;
 	}
+
+	public function updatePwd($user_id, $new_pwd)
+	{
+		$q = $this->db->prepare('UPDATE users SET pwd = :pwd WHERE id = :user_id');
+		$q->bindValue(":pwd", $new_pwd,);
+		$q->bindValue(":user_id", $user_id, PDO::PARAM_INT);
+		$q->execute();
+	}
 }
