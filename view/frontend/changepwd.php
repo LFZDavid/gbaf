@@ -10,7 +10,7 @@ ob_start();
 				<label for="question"><?=$user->question()?></label><br/>
 				<input type="hidden" name="username" value="<?=$user->username()?>">
 				<input type="text" name="answer" id="answer"><br/>
-				<label for="newpwd">Nouveau mot de pass</label><br/>
+				<label for="newpwd">Nouveau mot de passe</label><br/>
 				<input type="password" name="newpwd" id="newpwd"><br/>
 				<label for="verif">Vérification</label><br/>
 				<input type="password" name="verif" id="verif"><br/>

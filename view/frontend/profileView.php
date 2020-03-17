@@ -35,7 +35,8 @@ ob_start();
 
 			<input class="btn btn-secondary" type="submit" name="Valider" value="Modifier">
 		</form>
-</fieldset>
+	</fieldset>
+</div>
 
 
 
