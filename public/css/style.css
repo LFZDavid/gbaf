@@ -1,16 +1,77 @@
-/*PALETTE*/
+/*PALETTE
 https://www.code-couleur.com/palettes-2.html
+#1A1D26 (darkest)
+#223645	(dark)
+#DCDCDC	(grey)
+#FFF5EF	(light)
+#B83A1B (red)
 
+/***********************************/
+/* GLOBAL */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#main{
+	min-height: 100vh;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	
+}
+#content{
+	flex-grow: 1;
+}
+h1{
+	font-size: 18px;
+}
+
+.title{
+	display: flex;
+	width: 100%;
+}
+.title >h1{
+	margin : 15px auto;
+	font-size: 24px;
+}
+ul {
+	padding-left: 30px;
+}
+.bloc{
+	padding: 5px 20px;
+}
+
+.mini-form{
+	margin: 10px 25%;
+}
+
+fieldset{
+	margin-bottom: 20px;
+}
+
+input{
+	margin-bottom: 10px; 
+}
+#firstname,
+#lastname,
+#username,
+#pwd,
+#question,
+#answer,
+#verif,
+#newpwd
+{
+	width:100%;
+	height: 30px;
+}
+/***********************************/
 /* HEADER */
 
 header{
 	height: 15%;
-}
-
-header .container-fluid{
-	padding: 1% 1%;
+	padding: 1% 1% 0 1%;
 	display: flex;
-	flex-wrap: nowrap;
 	justify-content: space-between;
 	border-bottom: 1px solid #1a1d26;
 }
@@ -23,7 +84,7 @@ header .container-fluid{
 }
 
 #header-logo img{
-	width:70px;
+	width:100px;
 }
 
 #header-user-infos{
@@ -31,7 +92,47 @@ header .container-fluid{
 	margin-right: 15px;
 	margin-top: 10px;
 }
+#header-user-infos >a> .fas{
+	font-size: 30px;
+    vertical-align: sub;
+}
 
+/***********************************/
+ /* FOOTER */
+footer{
+	display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top:100px;
+ 	height: 100px;
+    font-size: 18px;
+    background: #ccc;
+    width: 100%;
+}
+.footer-content > a{
+	vertical-align: text-top;
+
+}
+
+
+/***********************************/
+/* LISTACTORVIEW */
+
+/* Présentation */
+#presentation{
+	border-bottom: 1px solid #1a1d26;
+	padding-bottom: 20px;
+}
+
+
+/* GBAF */
+.gbaf_presentation{
+	font-size: 18px;
+}
+.gbaf_presentation > ul > li{
+	font-size: 16px;
+}
 /* Bannière */
 .banniere{
 	height: 200px;
@@ -42,80 +143,200 @@ header .container-fluid{
 	background-size: cover;
 }
 
-/* listActorView */
-
-.gbaf_presentation{
-	border-bottom: 1px solid #1a1d26;
-	font-size: 18px;
-}
-
-.actor-text{
+/* Actor-thumbnails */
+.actors-text{
 	font-size:17px;
 }
-
 .actors-list{
 	border : 1px solid #1a1d26;
 	padding: 15px 7px;
+	margin-top: 50px;
 }
 .actor-thumbnail{
-	height: 90px;
 	border : 1px solid #1a1d26;
-	padding: 10px 5px 5px 5px;
+	padding: 10px 5px 10px 5px;
 	margin-bottom: 5px;
 	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
-	justify-content: space-between;
-}
-.logo{
-	display: flex;
-	padding-bottom: 5px;
-	padding-right: 20px;
 }
 .logo-actor-mini{
 	max-width : 150px;
-	max-height: 100px;
-	flex:1;
+	height: 80px;
+    margin: 0px 10px;
+    border: solid 1px #223645;
 }
+
 .actor-description{
 	margin: auto 0px 0px 7px;
-	flex:2;
+	flex: 2;
 }
 .actor-description>h3{
 	font-size: 16px;
 }
+
 .rdm{
 	font-style: italic;
-	margin: auto 0px 0px 0px;
+	align-self: flex-end;
 }
 .rdm-btn{
 	font-size: 13px;
 }
  
+/***********************************/
+/* ACTORVIEW */
+.actor-page-content{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+.actor-infos{
+	display: flex;
+	flex-direction: column;
+} 
+.full-actor-description{
+	display: flex;
+	flex-direction: column;
+	flex-grow: 2;
+    justify-content: center;
+	margin: 100px 0;
+}
+.full-actor-description > h2 {
+	font-size: 20px ;
+}
+.bloc .actor-description {
+	font-size: 18px;
+	border: 1px solid #1A1D26;
+}
+.comments{
+	background: #dcdcdc;
+	border: 0.5px solid #1a1d26;
+	padding-top: 15px;
+}
+.logo-actor{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 100px;
+}
+.logo-actor img{
+	width: 40%;
+	border:1px solid #1A1D26;
+}
+.bloc-comments-head{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.nb-comments{
+	font-size: 18px;
+	font-weight: bold;
+}
+.comments-btns{
+	display: flex;
+	justify-content: space-between;
+}
+.comments-btns > button{
+	background: #f0f0f0;
+}
+.comment{
+	background: white;
+	border: solid 1px #1A1D26;
+	border-radius: 10px;
+	margin: 10px 0;
+	padding: 15px;
+}
+.bloc-likes{
+	margin-left: 5px;
+	font-size: 18px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: #f0f0f0;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80px;
+}
+.fa-thumbs-up{
+	color: #385898;
+	cursor: pointer;
+
+}
+.fa-thumbs-down{
+	color: #b1221c;
+	transform: scaleX(-1);
+	cursor: pointer;
+}
+/************************************/
 /* PROFILEVIEW */
 #deco-btn{
 	display: flex;
 	justify-content: flex-end;
 	margin: 10px;
-	font-size: 16px;
+}
+#deco-btn > button{
+	width: 100px;
+	color: #b1221c;
+}
+#deco-btn > button >.fas{
+	font-size: 24px;
 }
 
+/*************************************/
+/* LOGIN */
 
- /* FOOTER */
-footer{
-	display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    position: static;
-    height: 100px;
+
+#login-btn{
+	margin-top: 10px;
 }
 
+/***********************************/
 /* Media queries */
 
 /*tablet*/
 @media screen and (max-device-width: 768px){
+	.
+	logo-actor img {
+    	width: 80%;
+	}
 }
 
-/*moblie*/
+/*mobile*/
 @media screen and (max-device-width: 576px){
+	/* header */
+	header{
+		flex-direction: column;
+	}
+	#header-logo{
+		margin-left: auto;
+	}
+	#header-user-infos{
+		margin: auto auto 10px auto;
+	}
+	/* login */
+	label, input{
+		width: 100%;
+	}
+	/* listactorview*/
+	.actor-thumbnail{
+		flex-direction: column;
+	}
+	.logo-actor-mini{
+		max-width: 90%;
+	}
+
+	/* actorView*/
+	.logo-actor img {
+    	width: 100%;
+	}
+	.full-actor-description > h2 {
+	font-size: 18px ;
+}
+	.comments-btns{
+		width: 100%;
+	}
 }

@@ -48,7 +48,6 @@ try{
 		}
 	}
 	else{
-		echo 'Veuillez vous connecter !';
 		require ('view/frontend/login.php');
 	}
 }

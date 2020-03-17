@@ -12,8 +12,8 @@
     </head>
         
     <body>
-    	<header>
-            <div class="container-fluid">
+        <div id="main">
+    	   <header>
                 <div id="header-logo">
             		<a href="/gbaf/index.php"><img src="/gbaf/public/img/logo-gbaf.png"/></a>
                 </div>
@@ -28,13 +28,15 @@
                     }
                     ?>
                 </div>
+    	   </header>
+           <div id="content">
+                <?= $content ?>
             </div>
-    	</header>
-        <?= $content ?>
-        <footer>
+            <footer>
             <div class="footer-content">
                 |<a href="#"> Mentions légales </a>|<a href="#"> Contact </a>|
             </div>            
-        </footer>
+            </footer>
+        </div>
     </body>
 </html>
