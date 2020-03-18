@@ -61,6 +61,6 @@ class CommentController extends EntityController
 	public function canHeComment($id_actor, $id_user)
 	{
 		$CommentManager = new CommentManager();
-		return $CommentManager->hasCommented($id_user, $id_actor);
+		return $CommentManager->hasVoteOrComment($id_user, $id_actor);
 	}
 }

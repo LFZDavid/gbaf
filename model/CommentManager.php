@@ -43,14 +43,4 @@ class CommentManager extends Manager
 		$nbComment = $q->rowCount();
 		return $nbComment;
 	}
-
-	public function hasCommented($id_user,$id_actor)
-	{
-		$request = 'SELECT id FROM '.$this->table.' WHERE id_user = :id_user AND id_actor = :id_actor';
-		$q = $this->db->prepare($request);
-		$q->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-		$q->bindValue(':id_actor', $id_actor, PDO::PARAM_INT);
-		$q->execute();
-		return $q->fetch();
-	}
 }

@@ -9,6 +9,8 @@ require_once('autoload.php');
 $ActorController = new ActorController();
 $UserController = new UserController();
 $CommentController = new CommentController();
+$VoteController = new VoteController();
+
 
 try{
 	if(isset($_GET['action'])){
@@ -53,7 +55,19 @@ try{
 		}
 	}
 	elseif(!empty($_SESSION)){
-		if(isset($_GET['view'])){
+		if(isset($_GET['vote']) && isset($_GET['actor'])){
+			if($_GET['vote'] == 'like'){
+				$dolike = true;
+			}
+			if($_GET['vote'] == 'dislike'){
+				$dolike = false;
+			}
+			$VoteController->vote(
+				$_GET['actor'],
+				$_SESSION['user_id'],
+				$dolike);
+		}
+		elseif(isset($_GET['view'])){
 			if($_GET['view'] == 'profile'){
 				$UserController->getUser($_SESSION['user_id']);
 			}

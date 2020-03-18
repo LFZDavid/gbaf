@@ -9,17 +9,9 @@ class VoteManager extends Manager
 	public function add(Vote $vote)
 	{
 		$q = $this->db->prepare('INSERT INTO votes(id_user, id_actor, dolike) VALUES(:id_user, :id_actor, :dolike)');
-		$q->bindValue(':id_user' , $vote->id_user());
-		$q->bindValue(':id_actor' , $vote->id_actor());
-		$q->bindValue(':dolike' , $vote->dolike());
-		$q->execute();
-	}
-	public function update(Vote $vote)
-	{
-		$q = $this->db->prepare('UPDATE votes SET id_user = :id_user, id_actor = :id_actor, dolike = :dolike WHERE id= :id');
-		$q->bindValue(':id_user' , $vote->id_user());
-		$q->bindValue(':id_actor' , $vote->id_actor());
-		$q->bindValue(':dolike' , $vote->dolike());
+		$q->bindValue(':id_user' , $vote->id_user(),PDO::PARAM_INT);
+		$q->bindValue(':id_actor' , $vote->id_actor(),PDO::PARAM_INT);
+		$q->bindValue(':dolike' , $vote->dolike(),PDO::PARAM_BOOL);
 		$q->execute();
 	}
 	
