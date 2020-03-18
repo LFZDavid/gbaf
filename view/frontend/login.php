@@ -8,10 +8,10 @@ ob_start();
 		<legend class="title"><h1><?=$title?></h1></legend>
 		<form action="/gbaf/index.php?action=connect" method="post">
 			<label for="username">Username</label>
-			<input type="text" id="username" name="username"><br/>
+			<input type="text" id="username" name="username" required><br/>
 
 			<label for="pwd">password</label>
-			<input type="password" id="pwd" name="pwd"><br/>
+			<input type="password" id="pwd" name="pwd" required><br/>
 			<a href="view/frontend/forgotpwd.php"><em style="font-size: 12px;">Mot de passe oublié</em></a><br/>
 			<input id="login-btn" class="btn btn-secondary" type="submit" name="Connection" value="Connection">
 		</form>

@@ -19,9 +19,9 @@ class CommentController extends EntityController
 			require('view/frontend/commentForm.php');
 			}
 			else{
-				$this->message("Vous avez déjà commenté cet Acteur/Partenaire");
 				$ActorController = new ActorController();
 				$ActorController->getActor($id_actor);
+				$this->message("Vous avez déjà commenté cet Acteur/Partenaire");
 			}
 		}
 		else{

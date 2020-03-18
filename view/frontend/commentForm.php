@@ -16,7 +16,7 @@ ob_start();
 	<div class="bloc comments">
 		<div class="comment-form">
 			<form action="/gbaf/index.php?action=add_comment" method="post">
-				<textarea type="text" id="content" name="content" placeholder="votre commentaire"></textarea>
+				<textarea type="text" id="content" name="content" placeholder="votre commentaire" maxlength="320" required></textarea>
 				<input type="hidden" name="id_actor" value="<?=$actor->id()?>">
 				<input type="hidden" name="id_user" value="<?=$user->id()?>">
 				<input type="submit" name="Valider" value="Valider">

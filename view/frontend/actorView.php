@@ -48,10 +48,9 @@ ob_start();
 			foreach ($comments as $comment) {
 			?>
 			<div class="comment">
-				De : <?=$comment->user_name?><br/>
-				<?=$comment->date_add()?><br/>
-				Commentaire : <br/>
-				<?=$comment->content()?><br/>
+				<strong><?=$comment->user_name?></strong><br/>
+				<em class='comment-date'>le : <?=$comment->date_add()?></em><br/>
+				" <?=$comment->content()?> "
 			</div>
 			<?php
 			}

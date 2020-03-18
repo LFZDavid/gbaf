@@ -20,7 +20,7 @@ class CommentManager extends Manager
 			SELECT
 			comments.id,
 			comments.id_user,
-			comments.date_add,
+			DATE_FORMAT(comments.date_add,\'%d-%m-%Y à %Hh%i\') AS date_add,
 			comments.content,
 			users.firstname AS user_name
 			FROM comments

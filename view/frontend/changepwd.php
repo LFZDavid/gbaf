@@ -8,12 +8,12 @@ ob_start();
 		<legend class="title"><h1><?=$title?></h1></legend>
 		<form action="/gbaf/index.php?action=change_pwd" method="post">
 				<label for="question"><?=$user->question()?></label><br/>
-				<input type="hidden" name="username" value="<?=$user->username()?>">
-				<input type="text" name="answer" id="answer"><br/>
+				<input type="hidden" name="username" value="<?=$user->username()?>" required>
+				<input type="text" name="answer" id="answer"required><br/>
 				<label for="newpwd">Nouveau mot de passe</label><br/>
-				<input type="password" name="newpwd" id="newpwd"><br/>
+				<input type="password" name="newpwd" id="newpwd"required><br/>
 				<label for="verif">Vérification</label><br/>
-				<input type="password" name="verif" id="verif"><br/>
+				<input type="password" name="verif" id="verif"required><br/>
 				<input class="btn btn-secondary" type="submit" name="Valider">
 		</form>
 	</fieldset>
