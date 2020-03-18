@@ -42,11 +42,14 @@ try{
 				header("Location:gbaf/index.php");
 			}
 		}
-		elseif($_GET['action'] == 'add_comment'){
+		elseif($_GET['action'] == 'add_comment' && !empty($_POST['id_actor']) && !empty($_POST['id_user']) && !empty(['content'])){
 			$CommentController->addNewComment(
 					$_POST['id_actor'],
 					$_POST['id_user'],
 					$_POST['content']);
+		}
+		else{
+			$ActorController->listActors();
 		}
 	}
 	elseif(!empty($_SESSION)){
