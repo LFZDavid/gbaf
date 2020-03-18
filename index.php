@@ -8,6 +8,7 @@ require_once('autoload.php');
 
 $ActorController = new ActorController();
 $UserController = new UserController();
+$CommentController = new CommentController();
 
 try{
 	if(isset($_GET['action'])){
@@ -32,6 +33,20 @@ try{
 				$_POST['answer'],
 				$_POST['newpwd'],
 				$_POST['verif']);
+		}
+		elseif($_GET['action']== 'comment_form'){
+			if(isset($_GET['actor']) && isset($_SESSION['user_id'])){
+				$CommentController->getCommentForm($_GET['actor'], $_SESSION['user_id']);
+			}
+			else{
+				header("Location:gbaf/index.php");
+			}
+		}
+		elseif($_GET['action'] == 'add_comment'){
+			$CommentController->addNewComment(
+					$_POST['id_actor'],
+					$_POST['id_user'],
+					$_POST['content']);
 		}
 	}
 	elseif(!empty($_SESSION)){

@@ -31,9 +31,9 @@ ob_start();
 			</div>
 			<div class="comments-btns">
 				<!--Bouton Nouveau commentaire-->
-				<button class="btn btn-secondary">
-					<a href="index.php?action=add_comment&amp;actor=<?=$actor->id()?>"></a>Nouveau<br/>commentaire
-				</button>
+				
+					<a href="index.php?action=comment_form&amp;actor=<?=$actor->id()?>"><button class="btn btn-secondary">Nouveau<br/>commentaire</button></a>
+				
 				<div class="bloc-likes">
 					<!--Bouton like-->
 					<?=$nbLike?> <i class="fas fa-thumbs-up"><a href="index.php?action=like&amp;actor=<?=$actor->id()?>"></a></i> 

@@ -7,10 +7,9 @@ class CommentManager extends Manager
 
 	public function add(Comment $comment)
 	{
-		$q = $this->db->prepare('INSERT INTO comments(id_user, id_actor, date_add, content) VALUES(:id_user, :id_actor, :content)');
+		$q = $this->db->prepare('INSERT INTO comments(id_user, id_actor, content) VALUES(:id_user, :id_actor, :content)');
 		$q->bindValue(':id_user' , $comment->id_user());
 		$q->bindValue(':id_actor' , $comment->id_actor());
-		$q->bindValue(':date_add' , time());
 		$q->bindValue(':content' , $comment->content());
 		$q->execute();
 	}
@@ -43,5 +42,15 @@ class CommentManager extends Manager
 		$q->execute();
 		$nbComment = $q->rowCount();
 		return $nbComment;
+	}
+
+	public function hasCommented($id_user,$id_actor)
+	{
+		$request = 'SELECT id FROM '.$this->table.' WHERE id_user = :id_user AND id_actor = :id_actor';
+		$q = $this->db->prepare($request);
+		$q->bindValue(':id_user', $id_user, PDO::PARAM_INT);
+		$q->bindValue(':id_actor', $id_actor, PDO::PARAM_INT);
+		$q->execute();
+		return $q->fetch();
 	}
 }
