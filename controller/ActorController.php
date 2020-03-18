@@ -7,14 +7,14 @@
 
 class ActorController extends EntityController
 {
-	function listActors()
+	public function listActors()
 	{
 		$actorManager = new ActorManager();
 		$actors = $actorManager->getList();
 		require('view/frontend/listActorView.php');
 	}
 
-	function getActor($id_actor)
+	public function getActor($id_actor)
 	{
 		$actorManager = new ActorManager();
 		$commentManager = new CommentManager();

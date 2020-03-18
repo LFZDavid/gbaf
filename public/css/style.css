@@ -101,12 +101,13 @@ input, select{
 /* HEADER */
 
 header{
-	height: 15%;
-	padding: 1% 1% 0 1%;
+	padding: 1% ;
 	display: flex;
 	justify-content: space-between;
 	border-bottom: 1px solid #2e1c08;
 	background: #ffedd0;
+	position: fixed;
+	width: 100%;
 }
 
 #header-logo{
@@ -117,7 +118,7 @@ header{
 }
 
 #header-logo img{
-	width:100px;
+	width:70px;
 }
 
 #header-user-infos{
@@ -380,7 +381,12 @@ footer{
 		margin-left: auto;
 	}
 	#header-user-infos{
-		margin: auto auto 10px auto;
+	    margin: 2px auto 4px auto;
+		font-size: 13px;
+	}
+	#header-user-infos>a> .fas{
+		font-size: 20px;
+    	vertical-align: top;
 	}
 	/* login */
 	label, input{
