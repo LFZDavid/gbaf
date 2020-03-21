@@ -34,12 +34,14 @@ ob_start();
 					<a href="index.php?action=comment_form&amp;actor=<?=$actor->id()?>"><button class="btn btn-secondary">Nouveau<br/>commentaire</button></a>
 				
 				<div class="bloc-likes">
-					<?=$nbLike?> <a href="index.php?vote=like&amp;actor=<?=$actor->id()?>">
+					<span class="like-count"><?=$nbLike?></span>
+					<a href="index.php?vote=like&amp;actor=<?=$actor->id()?>">
 						<i class="fas fa-thumbs-up"></i>
 					</a> 
 					<a href="index.php?vote=dislike&amp;actor=<?=$actor->id()?>">
 						<i class="fas fa-thumbs-down"></i>
 					</a>
+					<span class="dislike-count"><?=$nbDislike?></span>
 				</div>
 			</div>
 		</div>

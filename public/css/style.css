@@ -357,14 +357,16 @@ footer{
     justify-content: space-around;
     width: 80px;
 }
-.fa-thumbs-up{
+.fa-thumbs-up, .like-count{
 	color: #385898;
-	cursor: pointer;
 
 }
-.fa-thumbs-down{
+.fa-thumbs-down, .dislike-count{
 	color: #b1221c;
 	transform: scaleX(-1);
+}
+.fa-thumbs-up, fa-thumbs-down{
+	cursor: pointer;
 	cursor: pointer;
 }
 .comment-form > form > textarea{
@@ -377,6 +379,9 @@ footer{
 	width: 100%;
 	text-align: center;
 	padding-top: 10px;
+}
+.like-count, .dislike-count{
+	font-size: 15px;
 }
 
 /************************************/
@@ -437,7 +442,7 @@ footer{
 	}
 	.title >h1 {
     font-size: 22px;
-    
+    }
 	/* login */
 	label, input{
 		width: 100%;
@@ -449,19 +454,18 @@ footer{
 	.logo-actor-mini{
 		max-width: 90%;
 	}
-
 	/* actorView*/
 	.logo-actor img {
     	width: 100%;
 	}
 	.full-actor-description > h2 {
-	font-size: 18px ;
+		font-size: 18px ;
 	}
 	.comments-btns{
 		width: 100%;
 	}
 	/* profileView */
 	#deco-btn > button{
-	font-size: 10px;
+		font-size: 10px;
 	}
 }

@@ -28,11 +28,11 @@
                         echo $_SESSION['firstname'];
 
                     ?>
+                </div>
+                <a id="deco-btn"href="/gbaf/view/frontend/logout.php"><button class="btn btn-danger">Se déconnecter</button></a>
                     <?php
                     }
                     ?>
-                </div>
-                <a id="deco-btn"href="/gbaf/view/frontend/logout.php"><button class="btn btn-danger">Se déconnecter</button></a>
     	   </header>
            <div id="content">
                 <?= $content ?>

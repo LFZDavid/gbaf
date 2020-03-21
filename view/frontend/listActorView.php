@@ -41,7 +41,7 @@ ob_start();
 					<a download="<?= $actor->logo()?>" class="logo-link" href="/gbaf/public/img/<?= $actor->logo()?>"><em>-Télécharger le logo-</em></a>
 					<div class="rdm">
 						<a href="index.php?actorView=<?=$actor->id()?>" class="rdm-link">
-							<button class="btn btn-default rdm-btn">lire la suite</button>
+							<button class="btn btn-default rdm-btn">afficher la suite</button>
 						</a>
 					</div>
 				</div>

@@ -14,7 +14,7 @@ ob_start();
 			<label for="lastname">Nom</label>
 			<input type="text" id="lastname" name="lastname" required><br/>
 
-			<label for="username">Pseudo</label>
+			<label for="username">UserName</label>
 			<input type="text" id="username" name="username" required><br/>
 			
 			<label for="pwd">Mot de passe</label>
