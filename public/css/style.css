@@ -363,6 +363,8 @@ footer{
 }
 .fa-thumbs-down, .dislike-count{
 	color: #b1221c;
+}
+.fa-thumbs-down{
 	transform: scaleX(-1);
 }
 .fa-thumbs-up, fa-thumbs-down{

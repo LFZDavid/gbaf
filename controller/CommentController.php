@@ -1,9 +1,10 @@
 <?php
 /*
 namespace App\Controller;
-
+require_once('EntityController.php');
 use \App\Controller\EntityController;
 */
+
 class CommentController extends EntityController
 {	
 	public function getCommentForm($id_actor, $id_user)

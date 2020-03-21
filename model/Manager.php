@@ -1,9 +1,10 @@
 <?php
 
-//namespace Gbaf\Manager;
+/*
+namespace App\Manager;
 
-//use \PDO as PDO;
-
+use PDO;
+*/
 abstract class Manager
 {
 	protected $db;

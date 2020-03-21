@@ -41,7 +41,8 @@ ob_start();
 					<a href="index.php?vote=dislike&amp;actor=<?=$actor->id()?>">
 						<i class="fas fa-thumbs-down"></i>
 					</a>
-					<span class="dislike-count"><?=$nbDislike?></span>
+					<span class="dislike-count"><?=$nbDislike?>
+					</span>
 				</div>
 			</div>
 		</div>

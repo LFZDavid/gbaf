@@ -1,10 +1,9 @@
 <?php
-
-//namespace Gbaf\Controller;
-
-//use \Gbaf\Controller\EntityController;
-//use \Gbaf\Manager\ActorManager;
-
+/*
+namespace App\Controller;
+require_once('EntityController.php');
+use \App\Controller\EntityController;
+*/
 class ActorController extends EntityController
 {
 	public function listActors()

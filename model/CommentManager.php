@@ -1,5 +1,10 @@
 <?php
+/*
+namespace App\Manager;
 
+require_once('Manager.php');
+use \App\Manager\Manager;
+*/
 class CommentManager extends Manager
 {
 	protected $table = 'comments';

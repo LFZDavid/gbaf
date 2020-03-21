@@ -1,6 +1,6 @@
 <?php
 
-//namespace Gbaf\Controller;
+/*namespace App\Controller;*/
 
 abstract class EntityController
 {

@@ -1,4 +1,11 @@
 <?php
+/*
+namespace App\Manager;
+
+use PDO;
+require_once('Manager.php');
+use \App\Manager\Manager as Manager;
+*/
 
 class UserManager extends Manager
 {

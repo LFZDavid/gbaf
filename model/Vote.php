@@ -1,5 +1,10 @@
 <?php
 
+/*namespace App\Model;
+
+require_once('Entity.php');
+use \App\Model\Entity;
+*/
 class Vote extends Entity
 {
 	protected $id_user;

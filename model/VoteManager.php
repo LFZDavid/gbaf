@@ -1,6 +1,10 @@
 <?php
+/*
+namespace App\Manager;
 
-
+require_once('Manager.php');
+use \App\Manager\Manager;
+*/
 class VoteManager extends Manager
 {
 	protected $table = 'votes';
@@ -11,7 +15,7 @@ class VoteManager extends Manager
 		$q = $this->db->prepare('INSERT INTO votes(id_user, id_actor, dolike) VALUES(:id_user, :id_actor, :dolike)');
 		$q->bindValue(':id_user' , $vote->id_user(),PDO::PARAM_INT);
 		$q->bindValue(':id_actor' , $vote->id_actor(),PDO::PARAM_INT);
-		$q->bindValue(':dolike' , $vote->dolike(),PDO::PARAM_BOOL);
+		$q->bindValue(':dolike' , $vote->dolike(),PDO::PARAM_INT);
 		$q->execute();
 	}
 	
@@ -27,7 +31,7 @@ class VoteManager extends Manager
 	}
 	public function getLikeCount($id_actor)
 	{
-		$q = $this->db->prepare('SELECT * FROM votes WHERE dolike = true AND id_actor = :id_actor');
+		$q = $this->db->prepare('SELECT * FROM votes WHERE dolike = 1 AND id_actor = :id_actor');
 		$q->bindValue(':id_actor', $id_actor, PDO::PARAM_INT);
 		$q->execute();
 		$result = $q->rowCount();
@@ -35,7 +39,7 @@ class VoteManager extends Manager
 	}
 	public function getDislikeCount($id_actor)
 	{
-		$q = $this->db->prepare('SELECT * FROM votes WHERE dolike = false AND id_actor = :id_actor');
+		$q = $this->db->prepare('SELECT * FROM votes WHERE dolike = 2 AND id_actor = :id_actor');
 		$q->bindValue(':id_actor', $id_actor, PDO::PARAM_INT);
 		$q->execute();
 		$result = $q->rowCount();

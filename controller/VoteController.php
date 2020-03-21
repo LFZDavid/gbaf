@@ -1,9 +1,9 @@
 <?php
-/*
-namespace App\Controller;
 
-use \App\Controller\EntityController;
-*/
+/*namespace App\Controller;
+require_once('EntityController.php');
+use \App\Controller\EntityController;*/
+
 class VoteController extends EntityController
 {
 	public function canHeVote($id_actor, $id_user)
@@ -22,7 +22,7 @@ class VoteController extends EntityController
 				'dolike'=> $dolike);
 			$newVote = new Vote($data);
 			$VoteManager->add($newVote);
-			$this->message("A voté !");
+			$this->message("Votre vote a été enregistré !");
 			$ActorController = new ActorController();
 			$ActorController->getActor($id_actor);
 		}
