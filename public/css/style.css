@@ -11,6 +11,7 @@ https://www.code-couleur.com/palettes-5.html
 *{
 	margin: 0;
 	padding: 0;
+	list-style: none;
 }
 
 #main{
@@ -22,7 +23,7 @@ https://www.code-couleur.com/palettes-5.html
 }
 #content{
 	flex-grow: 1;
-	padding-top: 100px;
+	padding-top: 150px;
 }
 h1{
 	font-size: 18px;
@@ -38,6 +39,7 @@ h1{
 }
 ul {
 	padding-left: 30px;
+	margin-top: 5px;
 }
 .bloc{
 	padding: 5px 20px;
@@ -105,7 +107,7 @@ input, select{
     width: 50px;
     height: 50px;
     position: fixed;
-    bottom: 230px;
+    bottom: 120px;
     right: 0px;
     font-size: 28px;
     opacity: 0.8;
@@ -114,7 +116,9 @@ input, select{
 	background: #ffedd0;
 	color:#63100f;
 }
-
+.logo-link{
+	font-size: 12px;
+}
 /***********************************/
 /* HEADER */
 
@@ -123,6 +127,7 @@ header{
 	display: flex;
 	justify-content: space-between;
 	border-bottom: 1px solid #2e1c08;
+	margin-bottom: 20px;
 	background: #ffedd0;
 	position: fixed;
 	width: 100%;
@@ -221,7 +226,7 @@ footer{
 	border : 1px solid #2e1c08;
 	box-shadow: 2px 2px 3px #2e1c08;
 	background: #fff;
-	padding: 10px 5px 10px 5px;
+	padding: 10px 10px 10px 5px;
 	margin-bottom: 5px;
 	display: flex;
 	flex-direction: row;
@@ -238,7 +243,9 @@ footer{
 
 .actor-description{
 	margin: auto 0px 0px 7px;
+	display: flex;
 	flex: 2;
+	flex-direction: column;
 }
 .actor-description>h3{
 	font-size: 16px;
@@ -287,6 +294,7 @@ footer{
 	justify-content: center;
 	width: 100%;
 	margin-top: 100px;
+	flex-wrap: wrap;
 }
 .logo-actor img{
 	width: 40%;
@@ -349,6 +357,11 @@ footer{
     border-radius: 10px;
     padding: 10px;
 }
+.actor-infos>.logo-actor>.logo-link{
+	width: 100%;
+	text-align: center;
+	padding-top: 10px;
+}
 
 /************************************/
 /* PROFILEVIEW */
@@ -358,16 +371,16 @@ footer{
 	margin: 10px;
 }
 #deco-btn > button{
-	width: 100px;
-	color: #63100f;
-	background: #ffedd0;
-	box-shadow: 
+	color: white;
+	font-weight: bold;
+	font-size: 13px;
+	background: #dc3545;
+	text-decoration: none;
 }
-#deco-btn >button:hover{
-	color : #ffa420;
-}
-#deco-btn > button >.fas{
-	font-size: 24px;
+
+#deco-btn:hover{
+	text-decoration: none;
+
 }
 
 /*************************************/
@@ -413,6 +426,9 @@ footer{
 		font-size: 20px;
     	vertical-align: top;
 	}
+	.title >h1 {
+    font-size: 22px;
+    
 	/* login */
 	label, input{
 		width: 100%;
@@ -435,4 +451,8 @@ footer{
 	.comments-btns{
 		width: 100%;
 	}
+	/* profileView */
+	#deco-btn > button{
+	font-size: 10px;
+}
 }

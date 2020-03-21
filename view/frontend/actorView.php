@@ -7,6 +7,7 @@ ob_start();
 	<div class="actor-infos">
 		<div class="logo-actor">
 			<img src="public/img/<?=$actor->logo()?>"alt="logo <?=$actor->name()?>">
+			<a download="<?= $actor->logo()?>" class="logo-link" href="/gbaf/public/img/<?= $actor->logo()?>"><em>-Télécharger le logo-</em></a>
 		</div>
 			<div class="bloc full-actor-description">
 				<h2><?= $actor->description()?></h2>

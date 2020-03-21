@@ -9,12 +9,12 @@ ob_start();
 			<h1>
 			Le Groupement Banque Assurance Français (GBAF) est une fédération représentant les 6 grands groupes français :</h1>
 			<ul>
-				<li>BNP Paribas;</li>
-				<li>BPCE ;</li>
-				<li>Crédit Agricole ;</li>
-				<li>Crédit Mutuel-CIC ;</li>
-				<li>Société Générale ;</li>
-				<li>La Banque Postale.</li>
+				<li>- BNP Paribas;</li>
+				<li>- BPCE ;</li>
+				<li>- Crédit Agricole ;</li>
+				<li>- Crédit Mutuel-CIC ;</li>
+				<li>- Société Générale ;</li>
+				<li>- La Banque Postale.</li>
 			</ul>
 			<p>
 				Même s’il existe une forte concurrence entre ces entités, elles vont toutes travailler de la même façon pour gérer près de 80 millions de comptes sur le territoire national.<br>
@@ -37,12 +37,13 @@ ob_start();
 			<div class="actor-thumbnail">
 				<img class="logo-actor-mini"src="public/img/<?= $actor->logo()?>">
 				<div class="actor-description">
-					<h3><?=substr($actor->description(),0,80)?>...</h3>
-				</div>
-				<div class="rdm">
-					<a href="index.php?actorView=<?=$actor->id()?>" class="rdm-link">
-						<button class="btn btn-default rdm-btn">lire la suite</button>
-					</a>
+					<h3><?=substr($actor->description(),0,72)?>...</h3><br/>
+					<a download="<?= $actor->logo()?>" class="logo-link" href="/gbaf/public/img/<?= $actor->logo()?>"><em>-Télécharger le logo-</em></a>
+					<div class="rdm">
+						<a href="index.php?actorView=<?=$actor->id()?>" class="rdm-link">
+							<button class="btn btn-default rdm-btn">lire la suite</button>
+						</a>
+					</div>
 				</div>
 			</div>
 			<?php

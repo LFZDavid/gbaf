@@ -20,11 +20,13 @@
             		<a href="/gbaf/index.php"><img src="/gbaf/public/img/logo-gbaf.png"/></a>
                 </div>
                 <div id="header-user-infos">
+                    
                     <?php
                     if(!empty($_SESSION['lastname']) && !empty($_SESSION['firstname'])){
                         echo '<a href="/gbaf/index.php?view=profile"><i class="fas fa-user-circle fa-lg"></i></a>';
                         echo ' '.$_SESSION['lastname'].' ';
                         echo $_SESSION['firstname'];
+
                     ?>
                     <?php
                     }
