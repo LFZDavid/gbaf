@@ -4,7 +4,7 @@ $title = "Modifier mes infos";
 ob_start();
 
 ?>
-<a id="deco-btn"href="/gbaf/view/frontend/logout.php"><button class="btn btn-danger">Se déconnecter</button></a>
+
 <!--MODIFIER LES INFOS-->
 <div class="mini-form">
 	<fieldset>

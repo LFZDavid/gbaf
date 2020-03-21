@@ -158,6 +158,22 @@ header{
 #header-user-infos >a>.fas:hover{
 	color: #ffa420;
 }
+#deco-btn{
+	justify-content: flex-end;
+	margin-top: 7px;
+}
+#deco-btn > button{
+	color: white;
+	font-weight: bold;
+	font-size: 11px;
+	background: #dc3545;
+	text-decoration: none;
+}
+
+#deco-btn:hover{
+	text-decoration: none;
+
+}
 
 /***********************************/
  /* FOOTER */
@@ -365,23 +381,6 @@ footer{
 
 /************************************/
 /* PROFILEVIEW */
-#deco-btn{
-	display: flex;
-	justify-content: flex-end;
-	margin: 10px;
-}
-#deco-btn > button{
-	color: white;
-	font-weight: bold;
-	font-size: 13px;
-	background: #dc3545;
-	text-decoration: none;
-}
-
-#deco-btn:hover{
-	text-decoration: none;
-
-}
 
 /*************************************/
 /* LOGIN */
@@ -409,7 +408,7 @@ footer{
 	display: block;
 	}
 	#content{
-		padding-top: 120px;
+		padding-top: 170px;
 	}
 	/* header */
 	header{
@@ -417,14 +416,24 @@ footer{
 	}
 	#header-logo{
 		margin-left: auto;
+		order:2;
+	}
+	#header-logo img{
+		margin-top: -30px;
 	}
 	#header-user-infos{
 	    margin: 2px auto 4px auto;
 		font-size: 13px;
+		order:3;
 	}
 	#header-user-infos>a> .fas{
 		font-size: 20px;
     	vertical-align: top;
+	}
+	#deco-btn{
+		order:1;
+		align-self: flex-end;
+		margin-top: 0px;
 	}
 	.title >h1 {
     font-size: 22px;
@@ -447,12 +456,12 @@ footer{
 	}
 	.full-actor-description > h2 {
 	font-size: 18px ;
-}
+	}
 	.comments-btns{
 		width: 100%;
 	}
 	/* profileView */
 	#deco-btn > button{
 	font-size: 10px;
-}
+	}
 }
