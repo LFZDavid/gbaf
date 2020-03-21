@@ -1,10 +1,9 @@
 <?php
-/*
-namespace App\Model;
 
-require_once('Entity.php');
-use \App\Model\Entity;
-*/
+namespace App\Model\Entity;
+
+use \App\Model\Entity\Entity;
+
 class Comment extends Entity
 {
 	protected $id_user;

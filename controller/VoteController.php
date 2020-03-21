@@ -1,8 +1,12 @@
 <?php
 
-/*namespace App\Controller;
-require_once('EntityController.php');
-use \App\Controller\EntityController;*/
+namespace App\Controller;
+
+use \App\Controller\EntityController;
+use \App\Model\Manager\VoteManager;
+use \App\Model\Entity\Vote;
+use \App\Controller\ActorController;
+
 
 class VoteController extends EntityController
 {

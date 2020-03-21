@@ -1,9 +1,12 @@
 <?php
-/*
+
 namespace App\Controller;
-require_once('EntityController.php');
+
 use \App\Controller\EntityController;
-*/
+use \App\Model\Manager\ActorManager;
+use \App\Model\Manager\CommentManager;
+use \App\Model\Manager\VoteManager;
+
 class ActorController extends EntityController
 {
 	public function listActors()

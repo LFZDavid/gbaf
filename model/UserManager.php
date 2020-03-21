@@ -1,16 +1,15 @@
 <?php
-/*
-namespace App\Manager;
 
+namespace App\Model\Manager;
+
+use \App\Model\Manager\Manager;
+use \App\Model\Entity\User;
 use PDO;
-require_once('Manager.php');
-use \App\Manager\Manager as Manager;
-*/
 
 class UserManager extends Manager
 {
 	protected $table = 'users';
-	protected $classManaged = 'User';
+	protected $classManaged = 'App\Model\Entity\User';
 
 
 	public function add(User $user)

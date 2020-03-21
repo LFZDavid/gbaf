@@ -1,9 +1,13 @@
 <?php
-/*
+
 namespace App\Controller;
-require_once('EntityController.php');
+
 use \App\Controller\EntityController;
-*/
+use \App\Controller\ActorController;
+use \App\Model\Manager\CommentManager;
+use \App\Model\Manager\ActorManager;
+use \App\Model\Manager\UserManager;
+use \App\Model\Entity\Comment;
 
 class CommentController extends EntityController
 {	

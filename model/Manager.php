@@ -1,10 +1,9 @@
 <?php
 
-/*
-namespace App\Manager;
+namespace App\Model\Manager;
 
 use PDO;
-*/
+
 abstract class Manager
 {
 	protected $db;

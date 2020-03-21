@@ -1,11 +1,10 @@
 <?php
-/*
 namespace App\Controller;
-require_once('EntityController.php');
-use \App\Controller\EntityController;
 
-use \App\Manager\UserManager as UserManager;
-*/
+use \App\Controller\EntityController;
+use \App\Model\Manager\UserManager;
+use \App\Model\Entity\User;
+
 class UserController extends EntityController
 {
 	//Inscription//

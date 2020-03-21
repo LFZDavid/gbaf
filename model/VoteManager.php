@@ -1,14 +1,15 @@
 <?php
-/*
-namespace App\Manager;
 
-require_once('Manager.php');
-use \App\Manager\Manager;
-*/
+namespace App\Model\Manager;
+
+use \App\Model\Manager\Manager;
+use \App\Model\Entity\Vote;
+use PDO;
+
 class VoteManager extends Manager
 {
 	protected $table = 'votes';
-	protected $classManaged = 'Vote';
+	protected $classManaged = '\App\Model\Entity\Vote';
 
 	public function add(Vote $vote)
 	{

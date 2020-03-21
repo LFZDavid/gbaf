@@ -2,48 +2,17 @@
 <?php
 
 require_once('autoload.php');
-/*
-require_once('Controller/ActorController.php');
-require_once('Controller/CommentController.php');
-require_once('Controller/UserController.php');
-require_once('Controller/VoteController.php');
-require_once('Controller/EntityController.php');
 
-require_once('Model/Entity.php');
-require_once('Model/Actor.php');
-require_once('Model/User.php');
-require_once('Model/Comment.php');
-require_once('Model/Vote.php');
-
-require_once('Model/Manager.php');
-require_once('Model/ActorManager.php');
-require_once('Model/UserManager.php');
-require_once('Model/CommentManager.php');
-require_once('Model/VoteManager.php');
-
-use \App\Manager\Manager;
-use \App\Manager\ActorManager;
-use \App\Manager\UserManager;
-use \App\Manager\CommentManager;
-use \App\Manager\VoteManager;
-use \App\Entity\Entity;
-use \App\Entity\Actor;
-use \App\Entity\User;
-use \App\Entity\Comment;
-use \App\Entity\Vote;
-use \App\Controller\EntityController;
 use \App\Controller\ActorController;
 use \App\Controller\UserController;
 use \App\Controller\CommentController;
 use \App\Controller\VoteController;
-*/
 
 
 $ActorController = new ActorController();
 $UserController = new UserController();
 $CommentController = new CommentController();
 $VoteController = new VoteController();
-
 
 try{
 	if(isset($_GET['action'])){

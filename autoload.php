@@ -2,9 +2,13 @@
 
 session_start();
 
-function autoload($classname)
+function gbaf_autoload ($classname)
 {
-  if (file_exists($file = __DIR__ . '/Controller/' . $classname . '.php')){
+	$classname = str_replace('App\Controller\\', '', $classname);
+	$classname = str_replace('App\Model\Manager\\', '', $classname);
+	$classname = str_replace('App\Model\Entity\\', '', $classname);
+
+	if (file_exists($file = __DIR__ . '/Controller/' . $classname . '.php')){
     require $file;
   }
   elseif (file_exists($file = __DIR__ . '/Model/' . $classname . '.php')){
@@ -12,4 +16,6 @@ function autoload($classname)
    }
 }
 
-spl_autoload_register('autoload');
+spl_autoload_register('gbaf_autoload');
+
+
