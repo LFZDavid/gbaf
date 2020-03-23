@@ -40,7 +40,7 @@ class VoteManager extends Manager
 	}
 	public function getDislikeCount($id_actor)
 	{
-		$q = $this->db->prepare('SELECT * FROM votes WHERE dolike = 2 AND id_actor = :id_actor');
+		$q = $this->db->prepare('SELECT * FROM votes WHERE dolike = 0 AND id_actor = :id_actor');
 		$q->bindValue(':id_actor', $id_actor, PDO::PARAM_INT);
 		$q->execute();
 		$result = $q->rowCount();

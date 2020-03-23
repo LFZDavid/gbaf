@@ -21,7 +21,13 @@ class Vote extends Entity
 	}
 	public function doLike()
 	{ 
-		return $this->doLike;
+		if($this->doLike == 1){
+			$doLike = true;
+		}
+		elseif($this->doLike == 0){
+			$doLike = false;
+		}
+		return $doLike;
 	}
 
 	//SETTERS
@@ -42,6 +48,12 @@ class Vote extends Entity
 	public function setDoLike($doLike)
 	{
 		if(!empty($doLike)){
+			if($doLike){
+				$doLike = 1;
+			}
+			else{
+				$doLike = 0;
+			}
 			$this->doLike = $doLike;
 		}
 	}

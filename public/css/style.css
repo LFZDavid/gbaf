@@ -62,6 +62,7 @@ input, select{
 #firstname,
 #lastname,
 #username,
+#old_pwd,
 #pwd,
 #question,
 #answer,
@@ -388,6 +389,15 @@ footer{
 
 /************************************/
 /* PROFILEVIEW */
+
+.newPwdField{
+	padding:20px;
+	background: #FFEDD0;
+}
+
+.mini-label{
+	font-size: 12px;
+}
 
 /*************************************/
 /* LOGIN */

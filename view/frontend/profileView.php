@@ -19,6 +19,17 @@ ob_start();
 			<label for="username">Username :</label>
 			<input type="text" name="username" id="username" value="<?=$user->username()?>"><br/>
 
+			<strong>Mot de passe</strong><br/>
+			<div class="newPwdField">
+				<label for="old_pwd"><span class="mini-label">Actuel :</span></label>
+				<input type="password" name="old_pwd" id="old_pwd"><br/>
+				<label for="pwd"><span class="mini-label">Nouveau :</span></label>
+				<input type="password" name="pwd" id="pwd"><br/>
+
+				<label for="verif"><span class="mini-label">Verification :</span></label>
+				<input type="password" id="verif" name="verif"><br/>		
+			</div>	
+
 			<label for="question">Question secrete :</label>
 			<select id="question" name="question">
 				<option value="<?=$user->question()?>" selected><?=$user->question()?></option>
