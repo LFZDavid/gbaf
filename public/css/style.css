@@ -402,9 +402,39 @@ footer{
 /*************************************/
 /* LOGIN */
 
-
 #login-btn{
 	margin-top: 10px;
+}
+/*************************************/
+/* CONTACT */
+.contact-infos{
+	display: flex;
+	flex-direction: column;	
+}
+.contact-info{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.contact-info>.postal-data{
+	display: flex;
+	flex-direction: column;
+	font-size: 19px;
+	color: #2E1C08;
+	font-weight: bold;
+	margin-left : 10px;
+}
+.contact-info>.postal-data>p{
+	display: flex;
+	justify-content: center;
+}
+.contact-info>i{
+	font-size: 25px;
+}
+.contact-info>a{
+	margin-left: 10px;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 /***********************************/

@@ -40,7 +40,7 @@
             </div>
             <footer>
             <div class="footer-content">
-                |<a href="#"> Mentions légales </a>|<a href="#"> Contact </a>|
+                |<a href="/gbaf/view/frontend/mentionsLegals.php"> Mentions légales </a>|<a href="/gbaf/view/frontend/contact.php"> Contact </a>|
             </div>            
             </footer>
         </div>

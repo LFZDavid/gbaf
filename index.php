@@ -76,9 +76,6 @@ try{
 				$_POST['newpwd'],
 				$_POST['verif']);
 		}
-		else{
-			$ActorController->listActors();
-		}
 	}
 	else{
 		require ('view/frontend/login.php');
