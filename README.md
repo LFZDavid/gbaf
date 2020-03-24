@@ -32,7 +32,7 @@ BACKEND
 * Lien de téléchargement des logos des acteurs/partenaires
 
 ## Installation
-Importer la database avec l'un des fichiers fournis (structure_database ou structure_database + data)  
+Importer la database avec l'un des fichiers fournis dans le dossier "_DATABASE" (structure_database ou structure_database + data)  
 Copier le reste des fichiers dans de dossier du serveur.
 Utilisateur test :  
 Username : test  
