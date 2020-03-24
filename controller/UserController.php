@@ -96,7 +96,6 @@ class UserController extends EntityController
 	// Modifier user
 	public function update($user_id)
 	{
-		$hasChanged = "false";
 		$UserManager = new UserManager();
 		$user = $UserManager->getUniqueById($user_id);
 
@@ -126,6 +125,7 @@ class UserController extends EntityController
 			if(password_verify($_POST['old_pwd'], $user->pwd())){
 				if($_POST['pwd'] == $_POST['verif']){
 					$newPwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
+				$this->message('Votre mot de passe a été mis à jour !');
 				}
 				else{
 					$this->message('La vérification ne correspond pas au mot de passe.');
@@ -136,7 +136,6 @@ class UserController extends EntityController
 				$this->message('Le mot de passe actuel ne correspon pas.');
 				require ('view/frontend/profileView.php');	
 			}
-
 		}
 		if(!empty($_POST['question'])){
 			$newQuestion = $_POST['question'];
@@ -164,12 +163,11 @@ class UserController extends EntityController
 		else{
 			$this->message('Votre profile a été mis à jour !');
 		}
+
 		$NewUser = new User($data);
 		$UserManager->update($NewUser);
 		$_SESSION['lastname'] = $newLastname;
 		$_SESSION['firstname'] = $newFirstname;
-		$this->getUser($_SESSION['user_id']);
-
 	}
 
 	//Mot de passe oublié

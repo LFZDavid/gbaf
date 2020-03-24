@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -17,19 +17,20 @@
         <div id="main">
     	   <header>
                 <div id="header-logo">
-            		<a href="/gbaf/index.php"><img src="/gbaf/public/img/logo-gbaf.png"/></a>
+            		<a href="/gbaf/index.php"><img src="/gbaf/public/img/logo-gbaf.png" alt="logo-gbaf"/></a>
                 </div>
-                <div id="header-user-infos">
-                    
-                    <?php
+                <?php
                     if(!empty($_SESSION['lastname']) && !empty($_SESSION['firstname'])){
+                ?>
+                <div id="header-user-infos">
+                <?php
                         echo '<a href="/gbaf/index.php?view=profile"><i class="fas fa-user-circle fa-lg"></i></a>';
                         echo ' '.$_SESSION['lastname'].' ';
                         echo $_SESSION['firstname'];
 
-                    ?>
+                ?>
                 </div>
-                <a id="deco-btn"href="/gbaf/view/frontend/logout.php"><button class="btn btn-danger">Se déconnecter</button></a>
+                <a id="deco-btn" href="/gbaf/view/frontend/logout.php"><button class="btn btn-danger">Se déconnecter</button></a>
                     <?php
                     }
                     ?>

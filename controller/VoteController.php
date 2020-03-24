@@ -26,7 +26,6 @@ class VoteController extends EntityController
 				'dolike'=> $dolike);
 			$newVote = new Vote($data);
 			$VoteManager->add($newVote);
-			$this->message("Votre vote a été enregistré !");
 			$ActorController = new ActorController();
 			$ActorController->getActor($id_actor);
 		}

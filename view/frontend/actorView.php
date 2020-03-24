@@ -6,13 +6,30 @@ ob_start();
 <div class="actor-page-content container">
 	<div class="actor-infos">
 		<div class="logo-actor">
-			<img src="public/img/<?=$actor->logo()?>"alt="logo <?=$actor->name()?>">
+			<img src="public/img/<?=$actor->logo()?>" alt="logo <?=$actor->name()?>">
 			<a download="<?= $actor->logo()?>" class="logo-link" href="/gbaf/public/img/<?= $actor->logo()?>"><em>-Télécharger le logo-</em></a>
 		</div>
-			<div class="bloc full-actor-description">
-				<h2><?= $actor->description()?></h2>
+		<div class="bloc full-actor-description">
+			<h2><?= $actor->description()?></h2>
+		</div>
+		<div class="nav-arrow">
+			<?php
+			if($actorManager->isExist($actor->id()-1)){
+			?>
+				<div class="nav-prev">
+					<a href="index.php?actorView=<?=$actor->id()-1?>"><i class="fas fa-chevron-left"></i></a>
+				</div>
+			<?php
+			}
+			if($actorManager->isExist($actor->id()+1)){
+			?>
+			<div class="nav-next">
+				<a href="index.php?actorView=<?=$actor->id()+1?>"><i class="fas fa-chevron-right"></i></a>
 			</div>
-		</p>
+			<?php
+			}
+			?>
+		</div>
 	</div>
 	<div class="bloc comments">
 		<div class="bloc-comments-head">

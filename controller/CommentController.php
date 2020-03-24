@@ -48,7 +48,6 @@ class CommentController extends EntityController
 				);
 				$newComment = new Comment($data);
 				$CommentManager->add($newComment);
-				$this->message("Commentaire ajouté!");
 				$ActorController = new ActorController();
 				$ActorController->getActor($id_actor);
 			}

@@ -1,12 +1,3 @@
-/*PALETTE
-https://www.code-couleur.com/palettes-5.html
-#2e1c08 (dark)
-#63100f	(red)
-#ffa420	(orange)
-#ffd133	(yellow)
-#ffedd0 (light)
-
-/***********************************/
 /* GLOBAL */
 *{
 	margin: 0;
@@ -292,7 +283,7 @@ footer{
 	flex-direction: column;
 	flex-grow: 2;
     justify-content: center;
-	margin: 100px 0;
+	margin-top: 50px;
 }
 .full-actor-description > h2 {
 	font-size: 20px ;
@@ -386,6 +377,31 @@ footer{
 .like-count, .dislike-count{
 	font-size: 15px;
 }
+.nav-arrow{
+	margin: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.nav-prev, .nav-next{
+    background: #ffedd0;
+    height: 35px;
+    width: 70px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+.nav-prev>a, .nav-next>a{
+	display: flex;
+	text-decoration: none;
+	color: #2e1c08;
+	flex-direction: column;
+    justify-content: center;
+}
+.nav-next{
+	margin-left: auto;
+}
 
 /************************************/
 /* PROFILEVIEW */
@@ -442,8 +458,7 @@ footer{
 
 /*tablet*/
 @media screen and (max-device-width: 768px){
-	.
-	logo-actor img {
+	.logo-actor img {
     	width: 80%;
 	}
 }
