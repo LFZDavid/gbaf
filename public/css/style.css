@@ -204,6 +204,10 @@ footer{
 .gbaf_presentation{
 	font-size: 18px;
 }
+.gbaf_presentation>p,
+.actors-text{
+	text-align: justify;
+}
 .gbaf_presentation > ul > li{
 	font-size: 16px;
 }
