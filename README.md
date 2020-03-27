@@ -11,7 +11,7 @@ FRONTEND
 * FontAwesome (icones)
 * JavaScript (Alertes)
 * Design Responsive
-` Breackpoints : <576px ; <768px ; >=768px`
+` Breackpoints : <576px ; <=768px ; >768px`
 
 BACKEND
 * Architecture MVC
