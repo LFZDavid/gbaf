@@ -32,7 +32,7 @@ try{
 						$_POST['content']);
 			}
 		}
-		if(isset($_GET['vote']) && isset($_GET['actor'])){
+		elseif(isset($_GET['vote']) && isset($_GET['actor'])){
 			if($_GET['vote'] == 'like'){
 				$dolike = true;
 			}
