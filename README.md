@@ -14,9 +14,10 @@ FRONTEND
 ` Breackpoints : <576px ; <=768px ; >768px`
 
 BACKEND
+* Language : PHP 7.4.0
 * Architecture MVC
 * Programmation Orienté Objet.
-* Connexion à la base de données via PDO en PHP 7.4.0
+* Connexion à la base de données via PDO
 * Modelisation de la base de données via phpMyAdmin
 * Gestion de la base de données en SQL (MariaDB 10.4.10)
 
