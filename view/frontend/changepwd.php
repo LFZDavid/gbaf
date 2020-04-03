@@ -7,7 +7,7 @@ ob_start();
 	<fieldset>
 		<legend class="title"><h1><?=$title?></h1></legend>
 		<form action="/gbaf/index.php?action=change_pwd" method="post">
-				<label for="question"><?=$user->question()?></label><br/>
+				<label for="question"><?=htmlspecialchars($user->question())?></label><br/>
 				<input type="hidden" name="username" value="<?=$user->username()?>" required>
 				<input type="text" name="answer" id="answer"required><br/>
 				<label for="newpwd">Nouveau mot de passe</label><br/>

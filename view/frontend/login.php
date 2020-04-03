@@ -1,6 +1,6 @@
 <?php
 
-$title = "Connection";
+$title = "Connexion";
 ob_start();
 ?>
 <div class="container-fluid">

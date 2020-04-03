@@ -21,8 +21,8 @@ class UserController extends EntityController
 			
 			if($userManager->getUniqueByUsername($_POST['username'])){
 				$this->message('Cet username n\'est pas disponible ! Veuillez en choisir un autre svp.');
-				$firstname_field = $_POST['firstname'];
-				$lastname_field = $_POST['lastname'];
+				$firstname_field = htmlspecialchars($_POST['firstname']);
+				$lastname_field = htmlspecialchars($_POST['lastname']);
 				require('../gbaf/view/frontend/signUp.php');
 			}
 			else{
@@ -60,7 +60,7 @@ class UserController extends EntityController
 			isset($_POST['pwd'])){
 			$userManager = new UserManager();
 
-			$user = $userManager->getUniqueByUsername($_POST['username']);
+			$user = $userManager->getUniqueByUsername(htmlspecialchars($_POST['username']));
 			if(!empty($user)){
 				$isPasswordCorrect = password_verify($_POST['pwd'], $user->pwd());
 				if($isPasswordCorrect){
@@ -107,14 +107,14 @@ class UserController extends EntityController
 		$newAnswer = $user->answer();
 
 		if(!empty($_POST['lastname'])){
-			$newLastname = $_POST['lastname'];
+			$newLastname = htmlspecialchars($_POST['lastname']);
 		}
 		if(!empty($_POST['firstname'])){
-			$newFirstname = $_POST['firstname'];
+			$newFirstname = htmlspecialchars($_POST['firstname']);
 		}
 		if(!empty($_POST['username'])){
 			if(!$UserManager->isNewUsernameExist($user_id, $_POST['username'])){
-				$newUsername = $_POST['username'];
+				$newUsername = htmlspecialchars($_POST['username']);
 			}
 			else{
 				$this->message('Ce username n\'est pas disponible !');
@@ -136,10 +136,10 @@ class UserController extends EntityController
 			}
 		}
 		if(!empty($_POST['question'])){
-			$newQuestion = $_POST['question'];
+			$newQuestion = htmlspecialchars($_POST['question']);
 		}
 		if(!empty($_POST['answer'])){
-			$newAnswer = $_POST['answer'];
+			$newAnswer = htmlspecialchars($_POST['answer']);
 		}
 
 		$data = array(

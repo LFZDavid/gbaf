@@ -3,11 +3,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="/gbaf/public/js/script.js"></script>
         <title><?= $title ?></title>
         <link href="public/fontawesome-free-5.12.1-web/css/all.css" rel="stylesheet">
         <link href="/gbaf/public/css/style.css" rel="stylesheet" />
@@ -25,8 +21,8 @@
                 <div id="header-user-infos">
                 <?php
                         echo '<a href="/gbaf/index.php?view=profile"><i class="fas fa-user-circle fa-lg"></i></a>';
-                        echo ' '.$_SESSION['lastname'].' ';
-                        echo $_SESSION['firstname'];
+                        echo ' '.htmlspecialchars($_SESSION['lastname']).' ';
+                        echo htmlspecialchars($_SESSION['firstname']);
 
                 ?>
                 </div>
@@ -45,5 +41,9 @@
             </div>            
             </footer>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="/gbaf/public/js/script.js"></script>
     </body>
 </html>

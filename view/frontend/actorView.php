@@ -69,9 +69,10 @@ ob_start();
 			foreach ($comments as $comment) {
 			?>
 			<div class="comment">
-				<strong><?=$comment->user_name?></strong><br/>
+
+				<strong><?=htmlspecialchars($comment->user_name)?></strong><br/>
 				<em class='comment-date'>le : <?=$comment->date_add()?></em><br/>
-				" <?=$comment->content()?> "
+				" <?=htmlspecialchars($comment->content())?> "
 			</div>
 			<?php
 			}

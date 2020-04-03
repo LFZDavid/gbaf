@@ -11,13 +11,13 @@ ob_start();
 		<legend class="title"><h1><?=$title?></h1></legend>
 		<form action="/gbaf/index.php?action=update_user" method="post">
 			<label for="lastname">Nom :</label>
-			<input type="text" name="lastname" id="lastname" value="<?=$user->lastname()?>"><br/>
+			<input type="text" name="lastname" id="lastname" value="<?=htmlspecialchars($user->lastname())?>"><br/>
 			
 			<label for="firstname">Prénom :</label>
-			<input type="text" name="firstname" id="firstname" value="<?=$user->firstname()?>"><br/>
+			<input type="text" name="firstname" id="firstname" value="<?=htmlspecialchars($user->firstname())?>"><br/>
 			
 			<label for="username">Username :</label>
-			<input type="text" name="username" id="username" value="<?=$user->username()?>"><br/>
+			<input type="text" name="username" id="username" value="<?=htmlspecialchars($user->username())?>"><br/>
 
 			<strong>Mot de passe</strong><br/>
 			<div class="newPwdField">
@@ -32,7 +32,7 @@ ob_start();
 
 			<label for="question">Question secrete :</label>
 			<select id="question" name="question">
-				<option value="<?=$user->question()?>" selected><?=$user->question()?></option>
+				<option value="<?=htmlspecialchars($user->question())?>" selected><?=htmlspecialchars($user->question())?></option>
 				<option value="Quel est le nom de votre premier animal de compagnie ?">Quel est le nom de votre premier animal de compagnie ?</option>
 				<option value="Quel est le nom de la rue où vous avez grandis ?">Quel est le nom de la rue où vous avez grandis ?</option>
 				<option value="Quel est votre star préférée ?">Quel est votre star préférée ?</option>
@@ -41,7 +41,7 @@ ob_start();
 			</select><br/>
 
 			<label for="answer">Réponse :</label>
-			<input type="text" name="answer" id="answer"value="<?=$user->answer()?>"><br/>
+			<input type="text" name="answer" id="answer" value="<?=htmlspecialchars($user->answer())?>"><br/>
 
 			<input class="btn btn-secondary" type="submit" name="Valider" value="Modifier">
 		</form>
