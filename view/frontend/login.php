@@ -13,7 +13,7 @@ ob_start();
 			<label for="pwd">password</label>
 			<input type="password" id="pwd" name="pwd" required><br/>
 			<a href="view/frontend/forgotpwd.php"><em style="font-size: 12px;">Mot de passe oublié</em></a><br/>
-			<input id="login-btn" class="btn btn-secondary" type="submit" name="Conneion" value="Connexion">
+			<input id="login-btn" class="btn btn-secondary" type="submit" name="Connection" value="Connexion">
 		</form>
 	</fieldset>
 	<P>
